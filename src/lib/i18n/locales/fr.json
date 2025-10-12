@@ -1,0 +1,69 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "bio": "Biographie",
+    "cv": "Curriculum Vitae",
+    "achievements": "Réalisations",
+    "innovation": "Gestion de l'innovation",
+    "depth": "Profondeur technique",
+    "incubator": "Incubateur numérique",
+    "blog": "Blog",
+    "applications": "Applications",
+    "settings": "Paramètres"
+  },
+  "home": {
+    "title": "François Provencher, Ing., M.Sc.A.",
+    "subtitle": "Ingénieur et consultant en innovation",
+    "intro": "Bienvenue sur mon site personnel. Je suis un ingénieur passionné par l'innovation et les technologies."
+  },
+  "footer": {
+    "copyright": "© {year} François Provencher. Tous droits réservés.",
+    "contact": "Contact",
+    "email": "Email",
+    "linkedin": "LinkedIn",
+    "github": "GitHub"
+  },
+  "theme": {
+    "light": "Mode clair",
+    "dark": "Mode sombre",
+    "toggle": "Changer de thème"
+  },
+  "language": {
+    "select": "Sélectionner la langue",
+    "current": "Langue actuelle"
+  },
+  "common": {
+    "loading": "Chargement...",
+    "error": "Une erreur s'est produite",
+    "back": "Retour",
+    "next": "Suivant",
+    "previous": "Précédent",
+    "close": "Fermer",
+    "open": "Ouvrir",
+    "menu": "Menu"
+  },
+  "settings": {
+    "title": "Paramètres d'apparence",
+    "subtitle": "Personnalisez l'apparence du site selon vos préférences",
+    "colors": {
+      "title": "Couleurs",
+      "primary": "Couleur primaire",
+      "accent": "Couleur d'accent",
+      "custom": "Personnalisée"
+    },
+    "typography": {
+      "title": "Typographie",
+      "fontFamily": "Police de caractères",
+      "fontSize": "Taille de police",
+      "preview": "Exemple de texte avec cette police et cette taille"
+    },
+    "layout": {
+      "title": "Mise en page",
+      "spacing": "Espacement"
+    },
+    "actions": {
+      "save": "Enregistrer les modifications",
+      "reset": "Réinitialiser"
+    }
+  }
+}

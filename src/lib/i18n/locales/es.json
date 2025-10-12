@@ -1,0 +1,69 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "bio": "Biografía",
+    "cv": "Currículum",
+    "achievements": "Logros",
+    "innovation": "Gestión de la innovación",
+    "depth": "Profundidad técnica",
+    "incubator": "Incubadora digital",
+    "blog": "Blog",
+    "applications": "Aplicaciones",
+    "settings": "Configuración"
+  },
+  "home": {
+    "title": "François Provencher, Ing., M.Sc.A.",
+    "subtitle": "Ingeniero y consultor de innovación",
+    "intro": "Bienvenido a mi sitio web personal. Soy un ingeniero apasionado por la innovación y la tecnología."
+  },
+  "footer": {
+    "copyright": "© {year} François Provencher. Todos los derechos reservados.",
+    "contact": "Contacto",
+    "email": "Correo electrónico",
+    "linkedin": "LinkedIn",
+    "github": "GitHub"
+  },
+  "theme": {
+    "light": "Modo claro",
+    "dark": "Modo oscuro",
+    "toggle": "Cambiar tema"
+  },
+  "language": {
+    "select": "Seleccionar idioma",
+    "current": "Idioma actual"
+  },
+  "common": {
+    "loading": "Cargando...",
+    "error": "Se produjo un error",
+    "back": "Atrás",
+    "next": "Siguiente",
+    "previous": "Anterior",
+    "close": "Cerrar",
+    "open": "Abrir",
+    "menu": "Menú"
+  },
+  "settings": {
+    "title": "Configuración de apariencia",
+    "subtitle": "Personaliza la apariencia del sitio según tus preferencias",
+    "colors": {
+      "title": "Colores",
+      "primary": "Color primario",
+      "accent": "Color de acento",
+      "custom": "Personalizado"
+    },
+    "typography": {
+      "title": "Tipografía",
+      "fontFamily": "Familia de fuente",
+      "fontSize": "Tamaño de fuente",
+      "preview": "Texto de ejemplo con esta fuente y tamaño"
+    },
+    "layout": {
+      "title": "Diseño",
+      "spacing": "Espaciado"
+    },
+    "actions": {
+      "save": "Guardar cambios",
+      "reset": "Restablecer"
+    }
+  }
+}
