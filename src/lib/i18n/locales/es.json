@@ -13,15 +13,18 @@
   },
   "home": {
     "title": "François Provencher, Ing., M.Sc.A.",
-    "subtitle": "Ingeniero y consultor de innovación",
-    "intro": "Bienvenido a mi sitio web personal. Soy un ingeniero apasionado por la innovación y la tecnología."
+    "subtitle": "Innovador curioso y apasionado, centrado en el ser humano y guiado por datos",
+    "intro": "La ambición de avanzar"
   },
   "footer": {
     "copyright": "© {year} François Provencher. Todos los derechos reservados.",
     "contact": "Contacto",
     "email": "Correo electrónico",
     "linkedin": "LinkedIn",
-    "github": "GitHub"
+    "github": "GitHub",
+    "aiNoticeTitle": "Aviso de uso de IA generativa:",
+    "aiNoticeText": "Sitio web íntegramente creado y diseñado por François Provencher. La IA generativa (Claude Sonnet 4.5 Code) se utilizó para asistir en la escritura del código de este sitio web y para la traducción de textos. Todo el contenido fue generado por humanos.",
+    "visitors": "visitantes"
   },
   "theme": {
     "light": "Modo claro",
@@ -49,7 +52,12 @@
       "title": "Colores",
       "primary": "Color primario",
       "accent": "Color de acento",
-      "custom": "Personalizado"
+      "custom": "Personalizado",
+      "lightMode": "Colores de fondo - Modo claro",
+      "darkMode": "Colores de fondo - Modo oscuro",
+      "bgPrimary": "Fondo principal",
+      "bgSecondary": "Fondo secundario",
+      "bgCards": "Tarjetas/Secciones"
     },
     "typography": {
       "title": "Tipografía",
@@ -64,6 +72,93 @@
     "actions": {
       "save": "Guardar cambios",
       "reset": "Restablecer"
+    }
+  },
+  "incubator": {
+    "title": "Incubadora digital",
+    "subtitle": "Innovación y desarrollo de proyectos",
+    "genesis": {
+      "title": "La génesis",
+      "text": "En 2017, al comienzo de la transformación digital, propuse a mi empleador crear una incubadora digital para experimentar rápidamente con todas las últimas tecnologías digitales. La solicitud fue obviamente rechazada por falta de presupuesto, espacio y recursos. Así que decidí hacerlo por mi cuenta, paralelamente a mi trabajo, utilizando mis propios recursos. Así es como creé una incubadora digital personal, con el objetivo de probar y experimentar ideas innovadoras utilizando tecnologías de punta."
+    },
+    "objective": {
+      "title": "El objetivo",
+      "text": "El objetivo principal de esta incubadora es permitirme explorar tecnologías emergentes y desarrollar mis habilidades en gestión de la innovación. Esta iniciativa me ha permitido realizar varios proyectos innovadores, experimentar con nuevos enfoques y mantenerme a la vanguardia de los avances tecnológicos. También es un espacio creativo donde puedo dar vida a mis ideas sin las limitaciones del entorno profesional tradicional."
+    },
+    "current": {
+      "title": "La incubadora en 2025",
+      "text": "A principios de 2025, la incubadora está más activa que nunca, dado mis limitados medios y las pocas horas que puedo invertir en ella. Aquí están los principales equipos y tecnologías que uso actualmente. En general, siempre trato de usar software libre o de código abierto cuando sea posible."
+    },
+    "equipment": {
+      "title": "Equipos utilizados en 2025",
+      "desktop": "Computadora de escritorio con tarjeta gráfica",
+      "laptop": "Portátil personal",
+      "raspberry": "Raspberry Pi",
+      "arduino": "Arduino (microcontrolador)",
+      "printer": "Impresora 3D Prusa Mk3S",
+      "avmaterial": "Material de creación audio/video (cámaras, iluminación, pantalla verde, micrófono, consola de mezclas, etc.)",
+      "electronics": "Equipo para proyectos de electrónica (soldador, fuente de alimentación, alfombrilla antiestática, kits de componentes electrónicos)"
+    },
+    "software": {
+      "title": "Principales software utilizados en 2025",
+      "office": {
+        "title": "Ofimática",
+        "microsoft365": "Suite completa (Word, Excel, PowerPoint, Outlook, OneDrive)",
+        "sharepoint": "Colaboración y gestión documental",
+        "onenote": "Toma de notas y organización",
+        "communication": "Videoconferencia y comunicación en equipo",
+        "antidote": "Corrección y mejora lingüística"
+      },
+      "power": {
+        "title": "Suite Power de Microsoft",
+        "bi": "Paneles de control y visualización de datos",
+        "automate": "Automatización de procesos",
+        "apps": "Desarrollo de aplicaciones low-code",
+        "dataverse": "Base de datos en la nube y transformación de datos"
+      },
+      "content": {
+        "title": "Creación de contenido",
+        "davinci": "Edición de video profesional",
+        "audacity": "Edición y grabación de audio",
+        "obs": "Captura de video y transmisión en vivo",
+        "gameengines": "Desarrollo de juegos y experiencias interactivas"
+      },
+      "graphics": {
+        "title": "Gráficos e impresión 3D",
+        "gimp": "Retoque de imágenes y creación gráfica",
+        "blender": "Modelado 3D y animación",
+        "fusion": "Diseño asistido por computadora (CAD)",
+        "slicer": "Preparación de modelos para impresión 3D"
+      },
+      "development": {
+        "title": "Desarrollo de software",
+        "vscode": "Editor de código extensible",
+        "github": "Control de versiones y colaboración",
+        "docker": "Contenedorización y despliegue",
+        "nodejs": "Entorno de ejecución JavaScript",
+        "python": "Lenguaje de programación versátil",
+        "frameworks": "Frameworks modernos para interfaces web"
+      },
+      "ai": {
+        "title": "Ciencia de datos e inteligencia artificial",
+        "jupyter": "Entorno de desarrollo interactivo",
+        "pytorch": "Framework de aprendizaje profundo",
+        "tensorflow": "Plataforma de aprendizaje automático",
+        "openai": "Modelos de lenguaje y generación de imágenes (ChatGPT, DALL-E, Whisper)",
+        "claude": "Asistente de IA avanzado para análisis y generación",
+        "ollama": "Modelos de lenguaje de código abierto en local"
+      }
+    },
+    "future": {
+      "title": "Lo que sigue",
+      "text": "La llegada de ChatGPT y los grandes modelos de lenguaje ha transformado mi incubadora digital personal al permitirme aprender y desarrollar aplicaciones innovadoras mucho más rápido. Como trabajo solo en mi incubadora, la automatización de varias tareas gracias a la IA me permite maximizar el poco tiempo que puedo dedicarle. Actualmente estoy desarrollando varios proyectos innovadores utilizando IA, particularmente en las áreas de creación de contenido, desarrollo de aplicaciones (como este sitio web), automatización de tareas y análisis de datos.",
+      "projectsTitle": "Proyectos futuros (según el tiempo disponible)",
+      "project1": "Creación de un entorno de aplicación para un conjunto de apps basadas en las últimas tecnologías web",
+      "project2": "Ajuste fino de un gran modelo de lenguaje de código abierto basado en mis conocimientos",
+      "project3": "Desarrollo de una aplicación de vigilancia tecnológica para reemplazar Flipboard",
+      "project4": "Programación de una computadora cuántica simulada",
+      "project5": "Creación de una nube personal soberana",
+      "conclusion": "La incubadora digital personal es un proyecto en constante evolución. Continúo explorando nuevas tecnologías y desarrollando nuevos proyectos. Mi objetivo es seguir aprendiendo e innovando, compartiendo mis conocimientos y experiencias con otros entusiastas de la tecnología. Si está interesado en la innovación y las tecnologías digitales, no dude en contactarme. Estaré encantado de discutir mis proyectos y compartir mis ideas con usted."
     }
   }
 }

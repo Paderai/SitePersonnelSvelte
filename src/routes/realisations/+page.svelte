@@ -28,30 +28,6 @@
 		<header class="page-header">
 			<h1 class="page-title">{$t('nav.achievements')}</h1>
 			<p class="page-subtitle">Mes principales réalisations professionnelles</p>
-			<div class="header-actions">
-				<a
-					href="/Réalisations_FP_Innovitech 2025-06-10b.docx"
-					download
-					class="download-button"
-				>
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						width="20"
-						height="20"
-						viewBox="0 0 24 24"
-						fill="none"
-						stroke="currentColor"
-						stroke-width="2"
-						stroke-linecap="round"
-						stroke-linejoin="round"
-					>
-						<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-						<polyline points="7 10 12 15 17 10"></polyline>
-						<line x1="12" y1="15" x2="12" y2="3"></line>
-					</svg>
-					Télécharger la liste complète
-				</a>
-			</div>
 		</header>
 
 		<!-- Filtres -->
@@ -181,45 +157,8 @@
 	}
 
 	.page-subtitle {
-		margin: 0 0 1.5rem 0;
+		margin: 0;
 		font-size: 1.25rem;
-		color: rgb(var(--text-secondary));
-	}
-
-	.header-actions {
-		display: flex;
-		gap: 1rem;
-	}
-
-	.download-button {
-		display: inline-flex;
-		align-items: center;
-		gap: 0.5rem;
-		padding: 0.75rem 1.5rem;
-		background-color: rgb(var(--color-primary));
-		color: white;
-		border-radius: 0.5rem;
-		text-decoration: none;
-		font-weight: 500;
-		transition: all 0.2s ease;
-	}
-
-	.download-button:hover {
-		background-color: rgb(var(--color-primary-dark));
-		transform: translateY(-2px);
-		box-shadow: var(--shadow-lg);
-	}
-
-	.notice {
-		padding: 1.5rem;
-		background-color: rgb(var(--color-accent) / 0.1);
-		border-left: 4px solid rgb(var(--color-accent));
-		border-radius: 0.5rem;
-		margin-bottom: 3rem;
-	}
-
-	.notice p {
-		margin: 0.5rem 0;
 		color: rgb(var(--text-secondary));
 	}
 

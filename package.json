@@ -39,6 +39,7 @@
 	},
 	"dependencies": {
 		"mammoth": "^1.11.0",
+		"marked": "^16.4.0",
 		"svelte-i18n": "^4.0.1"
 	}
 }

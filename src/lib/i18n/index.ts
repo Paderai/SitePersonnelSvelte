@@ -15,7 +15,7 @@ export function initI18n() {
 
 // Export des constantes utiles
 export const availableLocales = [
-	{ code: 'fr', name: 'Français', flag: '🇫🇷' },
-	{ code: 'en', name: 'English', flag: '🇬🇧' },
+	{ code: 'fr', name: 'Français (Québec)', flag: '🇨🇦' },
+	{ code: 'en', name: 'English (Canada)', flag: '🇨🇦' },
 	{ code: 'es', name: 'Español', flag: '🇪🇸' }
 ];

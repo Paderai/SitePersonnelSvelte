@@ -9,6 +9,14 @@
 		fontFamily: string;
 		fontSize: string;
 		spacing: string;
+		// Mode clair
+		lightBgPrimary: string;
+		lightBgSecondary: string;
+		lightBgTertiary: string;
+		// Mode sombre
+		darkBgPrimary: string;
+		darkBgSecondary: string;
+		darkBgTertiary: string;
 	}
 
 	// Paramètres par défaut
@@ -17,7 +25,15 @@
 		accentColor: '255 200 87', // #FFC857
 		fontFamily: 'system-ui',
 		fontSize: '16',
-		spacing: '1'
+		spacing: '1',
+		// Mode clair
+		lightBgPrimary: '250 250 250', // #FAFAFA
+		lightBgSecondary: '245 247 250', // #F5F7FA
+		lightBgTertiary: '255 255 255', // #FFFFFF
+		// Mode sombre
+		darkBgPrimary: '28 28 30', // #1C1C1E
+		darkBgSecondary: '31 41 55', // #1F2937
+		darkBgTertiary: '55 65 81' // #374151
 	};
 
 	// État des paramètres
@@ -98,6 +114,16 @@
 
 		// Espacement
 		root.style.setProperty('--spacing-scale', newSettings.spacing);
+
+		// Couleurs de fond mode clair
+		root.style.setProperty('--light-bg-primary', newSettings.lightBgPrimary);
+		root.style.setProperty('--light-bg-secondary', newSettings.lightBgSecondary);
+		root.style.setProperty('--light-bg-tertiary', newSettings.lightBgTertiary);
+
+		// Couleurs de fond mode sombre
+		root.style.setProperty('--dark-bg-primary', newSettings.darkBgPrimary);
+		root.style.setProperty('--dark-bg-secondary', newSettings.darkBgSecondary);
+		root.style.setProperty('--dark-bg-tertiary', newSettings.darkBgTertiary);
 	}
 
 	// Sauvegarder les paramètres
@@ -239,6 +265,92 @@
 								handleChange();
 							}}
 						/>
+					</div>
+				</div>
+
+				<!-- Couleurs de fond mode clair -->
+				<div class="setting-group">
+					<label class="setting-label">{$t('settings.colors.lightMode')}</label>
+					<div class="background-colors">
+						<div class="bg-color-control">
+							<label for="light-bg-primary">{$t('settings.colors.bgPrimary')}</label>
+							<input
+								type="color"
+								id="light-bg-primary"
+								value={rgbToHex(settings.lightBgPrimary)}
+								oninput={(e) => {
+									settings.lightBgPrimary = hexToRgb(e.currentTarget.value);
+									handleChange();
+								}}
+							/>
+						</div>
+						<div class="bg-color-control">
+							<label for="light-bg-secondary">{$t('settings.colors.bgSecondary')}</label>
+							<input
+								type="color"
+								id="light-bg-secondary"
+								value={rgbToHex(settings.lightBgSecondary)}
+								oninput={(e) => {
+									settings.lightBgSecondary = hexToRgb(e.currentTarget.value);
+									handleChange();
+								}}
+							/>
+						</div>
+						<div class="bg-color-control">
+							<label for="light-bg-tertiary">{$t('settings.colors.bgCards')}</label>
+							<input
+								type="color"
+								id="light-bg-tertiary"
+								value={rgbToHex(settings.lightBgTertiary)}
+								oninput={(e) => {
+									settings.lightBgTertiary = hexToRgb(e.currentTarget.value);
+									handleChange();
+								}}
+							/>
+						</div>
+					</div>
+				</div>
+
+				<!-- Couleurs de fond mode sombre -->
+				<div class="setting-group">
+					<label class="setting-label">{$t('settings.colors.darkMode')}</label>
+					<div class="background-colors">
+						<div class="bg-color-control">
+							<label for="dark-bg-primary">{$t('settings.colors.bgPrimary')}</label>
+							<input
+								type="color"
+								id="dark-bg-primary"
+								value={rgbToHex(settings.darkBgPrimary)}
+								oninput={(e) => {
+									settings.darkBgPrimary = hexToRgb(e.currentTarget.value);
+									handleChange();
+								}}
+							/>
+						</div>
+						<div class="bg-color-control">
+							<label for="dark-bg-secondary">{$t('settings.colors.bgSecondary')}</label>
+							<input
+								type="color"
+								id="dark-bg-secondary"
+								value={rgbToHex(settings.darkBgSecondary)}
+								oninput={(e) => {
+									settings.darkBgSecondary = hexToRgb(e.currentTarget.value);
+									handleChange();
+								}}
+							/>
+						</div>
+						<div class="bg-color-control">
+							<label for="dark-bg-tertiary">{$t('settings.colors.bgCards')}</label>
+							<input
+								type="color"
+								id="dark-bg-tertiary"
+								value={rgbToHex(settings.darkBgTertiary)}
+								oninput={(e) => {
+									settings.darkBgTertiary = hexToRgb(e.currentTarget.value);
+									handleChange();
+								}}
+							/>
+						</div>
 					</div>
 				</div>
 			</section>
@@ -461,6 +573,36 @@
 
 	.custom-color input[type='color'] {
 		width: 3rem;
+		height: 2.5rem;
+		border: 1px solid rgb(var(--border-color));
+		border-radius: 0.375rem;
+		cursor: pointer;
+	}
+
+	.background-colors {
+		display: grid;
+		gap: 1rem;
+		padding: 1rem;
+		background-color: rgb(var(--bg-primary));
+		border: 1px solid rgb(var(--border-color));
+		border-radius: 0.5rem;
+	}
+
+	.bg-color-control {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+	}
+
+	.bg-color-control label {
+		font-size: 0.875rem;
+		color: rgb(var(--text-secondary));
+		flex: 1;
+	}
+
+	.bg-color-control input[type='color'] {
+		width: 4rem;
 		height: 2.5rem;
 		border: 1px solid rgb(var(--border-color));
 		border-radius: 0.375rem;

@@ -61,12 +61,13 @@ export const cvData: CVData = {
 		name: 'François Provencher, Ing., M.Sc.A.',
 		title: 'Directeur principal, innovation et technologie',
 		summary:
-			'Ingénieur et consultant expert avec plus de 25 ans d\'expérience en gestion de l\'innovation, transformation numérique et développement technologique. Expertise approfondie en aérospatiale, technologies émergentes, IA et gestion de projets stratégiques complexes.',
+			"Ingénieur et consultant expert avec plus de 30 ans d\'expérience en gestion, innovation, aérospatiale, technologies numériques et développement technologique. Expertise approfondie en aérospatiale, technologies émergentes, IA et gestion de projets stratégiques complexes.",
 		email: 'francois.provencher@innovitech.com',
 		phone: '438 455-3542',
 		location: 'Montréal, Québec (Canada)',
 		linkedin: 'https://www.linkedin.com/in/francois-provencher',
-		website: 'https://www.sciencesconnexions.com'
+		website: 'https://www.sciencesconnexions.com',
+		flipboard: 'https://flipboard.com/@SConnexions?from=share&utm_source=flipboard&utm_medium=curator_share'
 	},
 	experiences: [
 		{
@@ -327,7 +328,29 @@ export const cvData: CVData = {
 				'HTML/CSS',
 				'Python',
 				'PyTorch',
-				'IA générative'
+				'IA générative',
+				'Git/GitHub',
+				'JIRA/Confluence',
+				'SharePoint',
+				'ERP/CRM (Dynamics, SAP, Oracle)',
+				'PLM (Dassault Systèmes)',
+				'Gestion de projet (MS Project, Smartsheet, MS Planner, Trello, MS Teams)',
+				'Modélisation 3D (Blender, SolidWorks, CATIA)',	
+				'Analyse de données (Excel, R, MATLAB)',	
+				'Gestion de la relation client (CRM)',
+				'Gestion du cycle de vie des produits (PLM)',
+				'Développement web (front-end et back-end)',
+				'Impression 3D et prototypage rapide',
+				'IoT (Internet des objets)',
+				'Automatisation (RPA, macros VBA)',	
+				'Cloud computing (Azure, AWS, Google Cloud)',
+				'Cybersécurité de base',
+				'Gestion de bases de données (SQL, NoSQL)',
+				
+				
+
+
+
 			]
 		},
 		{

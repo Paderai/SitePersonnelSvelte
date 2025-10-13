@@ -39,10 +39,15 @@
 
 :root,
 :root[data-theme="light"] {
-  /* Arrière-plans */
-  --bg-primary: var(--color-neutral-50);
-  --bg-secondary: var(--color-neutral-100);
-  --bg-tertiary: 255 255 255;
+  /* Arrière-plans - valeurs par défaut, peuvent être surchargées par les paramètres */
+  --light-bg-primary: var(--color-neutral-50);
+  --light-bg-secondary: var(--color-neutral-100);
+  --light-bg-tertiary: 255 255 255;
+
+  /* Arrière-plans appliqués */
+  --bg-primary: var(--light-bg-primary);
+  --bg-secondary: var(--light-bg-secondary);
+  --bg-tertiary: var(--light-bg-tertiary);
 
   /* Textes */
   --text-primary: var(--color-text-dark);
@@ -64,10 +69,15 @@
    ============================================ */
 
 :root[data-theme="dark"] {
-  /* Arrière-plans */
-  --bg-primary: var(--color-neutral-900);
-  --bg-secondary: var(--color-neutral-800);
-  --bg-tertiary: var(--color-neutral-700);
+  /* Arrière-plans - valeurs par défaut, peuvent être surchargées par les paramètres */
+  --dark-bg-primary: var(--color-neutral-900);
+  --dark-bg-secondary: var(--color-neutral-800);
+  --dark-bg-tertiary: var(--color-neutral-700);
+
+  /* Arrière-plans appliqués */
+  --bg-primary: var(--dark-bg-primary);
+  --bg-secondary: var(--dark-bg-secondary);
+  --bg-tertiary: var(--dark-bg-tertiary);
 
   /* Textes */
   --text-primary: var(--color-text-light);

@@ -1,5 +1,7 @@
-PProjet: Site web personnel avec Svelte 5
+Projet: Site web personnel avec Svelte 5
 
+
+# Site initial V1.0.0
 
 Je veux me faire un site personnel avec Svelte 5. Je veux me créer un site personnel en svelte. Je veux intialement 5 pages: 1 page d'accueuil, 1 pages avec ma biographie, une page avec mon CV, une page avec mes principales réalisations et une page avec mes principes en gestion de l'innovation. Génère une palette de couleur en utilisant le bleu (50,125,200) comme couleur de base. Je veux que le site puisse être en anglais et en français , qu'il soit réactif pour ordinateur, tablette et téléphone et qu'il puisse être affiché en dark ou light mode. J'ai déjà un nom de domaine (www.sciencesconnexions.com) et j'utilise cPanel pour la gestion des fichiers. Je veux que mon CV soit à l'adresse www.sciencesconnexions.com/francois_provencher. 
 
@@ -59,3 +61,30 @@ J'aime beaucoup le look and feel de ces sites. Tu peux t'en inspirer pour le des
 Innoation 360: https://innovation360.com/
 
 MKinsey : https://www.mckinsey.com/
+
+
+# To dos pour la version 2:
+
+
+## Complété
+
+1) Complète la page blog. Je veux que les visiteurs puissent voire les posts du blogs, mais que seul l'administrateur du site (moi) puisse créer un post de blog après avoir entré un mot de passe pour entrer dans la section administration du site. 
+3) Dans le footer (à peu près au milieur) ajoute le texte suivant: Notice d'utilisation de l'IA générative: L'IA générative (Claude Sonnet 4.5 Code) a été utilisée pour l'assistance à l'écriture du code de ce site web ainsi que pour la tracduction des textes. Tout le contenu a été généré humainement. 
+4) Ajouter un compteur du nombre de visiteurs en bas à droite, en dessous de la notice copyright
+5) Ajoute mon compte flipboard: 
+'https://flipboard.com/@SConnexions?from=share&utm_source=flipboard&utm_medium=curator_share'  dans mes médias sociaux 
+1) À la place de ingénieur consultant en innovation, mets: Innovateur curieux et passionné, centré sur l'humain et guidé par les données. n'oublie pas de traduire en anglais et espagnol
+2) corrige le pull-down pour les langues. On utilise français québécois et anglais canadiens.
+3) Dans le footer (à peu près au milieur) ajoute le texte suivant: Notice d'utilisation de l'IA générative: L'IA générative (Claude Sonnet 4.5 Code) a été utilisée pour l'assistance à l'écriture du code de ce site web ainsi que pour la tracduction des textes. Tout le contenu a été généré humainement. 
+4) enlève la carte pour la notice d'utilisation de l'IA générative. Garde la notice, mais mets la moins visible et plus comme une note de bas de pabe ou un disclaimer. 
+
+
+
+## A faire: 
+
+
+5) J'ai complété la première version de la page incubateur (http://localhost:5173/incubateur). Analyse le contenu de la page, corrige les faute d'orthographe, améliore le texte, améliore le layout (peut-être en utilisant un accordéon pour les sections). Améliore le layout pour les applications en créant une carte pour chaque application et ajoute le logo ce l'application et une courte description. Garde les applications dans leur section respective. finalement, fais la traduction en anglais et espagnol.
+
+6) dans l'onglet réalisations, anonymise les cartes qui mentionnent le nom des clients pour des termes plus 
+génériques. Par exemple, remplace CRIAQ par "consortium de recherche collaborative" et enlève la possibilité de 
+downloader les réalisations 

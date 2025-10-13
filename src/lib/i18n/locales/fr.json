@@ -13,15 +13,18 @@
   },
   "home": {
     "title": "François Provencher, Ing., M.Sc.A.",
-    "subtitle": "Ingénieur et consultant en innovation",
-    "intro": "Bienvenue sur mon site personnel. Je suis un ingénieur passionné par l'innovation et les technologies."
+    "subtitle": "Innovateur curieux et passionné, centré sur l'humain et guidé par les données",
+    "intro": "L'ambition d'avancer"
   },
   "footer": {
     "copyright": "© {year} François Provencher. Tous droits réservés.",
     "contact": "Contact",
     "email": "Email",
     "linkedin": "LinkedIn",
-    "github": "GitHub"
+    "github": "GitHub",
+    "aiNoticeTitle": "Notice d'utilisation de l'IA générative :",
+    "aiNoticeText": "Site entièrement réalisé et conçu par François Provencher. L'IA générative (Claude Sonnet 4.5 Code) a été utilisée pour l'assistance à l'écriture du code de ce site web ainsi que pour la traduction des textes. Tout le contenu a été généré humainement.",
+    "visitors": "visiteurs"
   },
   "theme": {
     "light": "Mode clair",
@@ -42,6 +45,22 @@
     "open": "Ouvrir",
     "menu": "Menu"
   },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Articles et réflexions sur l'innovation et la technologie",
+    "admin": "Administration",
+    "searchPlaceholder": "Rechercher un article...",
+    "category": "Catégorie",
+    "allCategories": "Toutes les catégories",
+    "tags": "Tags",
+    "allTags": "Tous les tags",
+    "activeFilters": "Filtres actifs",
+    "clearFilters": "Effacer les filtres",
+    "article": "article",
+    "articles": "articles",
+    "readMore": "Lire la suite",
+    "noPosts": "Aucun article trouvé"
+  },
   "settings": {
     "title": "Paramètres d'apparence",
     "subtitle": "Personnalisez l'apparence du site selon vos préférences",
@@ -49,7 +68,12 @@
       "title": "Couleurs",
       "primary": "Couleur primaire",
       "accent": "Couleur d'accent",
-      "custom": "Personnalisée"
+      "custom": "Personnalisée",
+      "lightMode": "Couleurs de fond - Mode clair",
+      "darkMode": "Couleurs de fond - Mode sombre",
+      "bgPrimary": "Fond principal",
+      "bgSecondary": "Fond secondaire",
+      "bgCards": "Cartes/Sections"
     },
     "typography": {
       "title": "Typographie",
@@ -64,6 +88,93 @@
     "actions": {
       "save": "Enregistrer les modifications",
       "reset": "Réinitialiser"
+    }
+  },
+  "incubator": {
+    "title": "Incubateur numérique",
+    "subtitle": "Innovation et développement de projets",
+    "genesis": {
+      "title": "La genèse",
+      "text": "En 2017, au début de la transformation numérique, j'ai proposé à mon employeur de mettre sur pied un incubateur numérique afin de pouvoir expérimenter rapidement avec toutes les dernières technologies numériques. La demande a été évidemment refusée pour manque de budget, d'espace et de ressources. J'ai donc décidé de le faire de mon côté, en parallèle de mon travail, en utilisant mes propres ressources. C'est ainsi que j'ai créé un incubateur numérique personnel, avec pour objectif de tester et d'expérimenter des idées innovantes en utilisant des technologies de pointe."
+    },
+    "objective": {
+      "title": "L'objectif",
+      "text": "L'objectif principal de cet incubateur est de me permettre d'explorer les technologies émergentes et de développer mes compétences en gestion de l'innovation. Cette initiative m'a permis de réaliser plusieurs projets innovants, d'expérimenter avec de nouvelles approches et de rester à la fine pointe des avancées technologiques. C'est également un espace de créativité où je peux donner vie à mes idées sans les contraintes du milieu professionnel traditionnel."
+    },
+    "current": {
+      "title": "L'incubateur en 2025",
+      "text": "Début 2025, l'incubateur est plus actif que jamais, compte tenu de mes faibles moyens et du peu d'heures que je peux y investir. Voici les principaux équipements et technologies que j'utilise actuellement. De manière générale, j'essaie de toujours utiliser des logiciels libres ou open source lorsque c'est possible."
+    },
+    "equipment": {
+      "title": "Équipements utilisés en 2025",
+      "desktop": "Ordinateur de type tour avec carte graphique",
+      "laptop": "Ordinateur portable personnel",
+      "raspberry": "Raspberry Pi",
+      "arduino": "Arduino (microcontrôleur)",
+      "printer": "Imprimante 3D Prusa Mk3S",
+      "avmaterial": "Matériel de création audio/vidéo (caméras, éclairage, écran vert, micro, console de mixage, etc.)",
+      "electronics": "Équipement pour projets d'électronique (fer à souder, alimentation, tapis antistatique, kits de composants électroniques)"
+    },
+    "software": {
+      "title": "Principaux logiciels utilisés en 2025",
+      "office": {
+        "title": "Bureautique",
+        "microsoft365": "Suite complète (Word, Excel, PowerPoint, Outlook, OneDrive)",
+        "sharepoint": "Collaboration et gestion documentaire",
+        "onenote": "Prise de notes et organisation",
+        "communication": "Visioconférence et communication d'équipe",
+        "antidote": "Correction et amélioration linguistique"
+      },
+      "power": {
+        "title": "Suite Power de Microsoft",
+        "bi": "Tableaux de bord et visualisation de données",
+        "automate": "Automatisation de processus",
+        "apps": "Développement d'applications low-code",
+        "dataverse": "Base de données cloud et transformation de données"
+      },
+      "content": {
+        "title": "Création de contenu",
+        "davinci": "Montage vidéo professionnel",
+        "audacity": "Édition et enregistrement audio",
+        "obs": "Capture vidéo et diffusion en direct",
+        "gameengines": "Développement de jeux et expériences interactives"
+      },
+      "graphics": {
+        "title": "Graphisme et impression 3D",
+        "gimp": "Retouche d'images et création graphique",
+        "blender": "Modélisation 3D et animation",
+        "fusion": "Conception assistée par ordinateur (CAO)",
+        "slicer": "Préparation de modèles pour impression 3D"
+      },
+      "development": {
+        "title": "Développement logiciel",
+        "vscode": "Éditeur de code extensible",
+        "github": "Gestion de versions et collaboration",
+        "docker": "Conteneurisation et déploiement",
+        "nodejs": "Environnement d'exécution JavaScript",
+        "python": "Langage de programmation polyvalent",
+        "frameworks": "Frameworks modernes pour interfaces web"
+      },
+      "ai": {
+        "title": "Science des données et intelligence artificielle",
+        "jupyter": "Environnement de développement interactif",
+        "pytorch": "Framework d'apprentissage profond",
+        "tensorflow": "Plateforme d'apprentissage automatique",
+        "openai": "Modèles de langage et génération d'images (ChatGPT, DALL-E, Whisper)",
+        "claude": "Assistant IA avancé pour analyse et génération",
+        "ollama": "Modèles de langage open source en local"
+      }
+    },
+    "future": {
+      "title": "La suite",
+      "text": "L'arrivée de ChatGPT et des modèles de langage de grande taille a transformé mon incubateur numérique personnel en permettant d'apprendre et de développer beaucoup plus rapidement des applications innovantes. Comme je travaille seul sur mon incubateur, l'automatisation de plusieurs tâches grâce à l'IA me permet de maximiser le peu de temps que je peux y consacrer. Je suis actuellement en train de développer plusieurs projets innovants en utilisant l'IA, notamment dans les domaines de la création de contenu, le développement d'applications (comme ce site web), l'automatisation des tâches et l'analyse de données.",
+      "projectsTitle": "Projets à venir (en fonction du temps disponible)",
+      "project1": "Création d'un environnement applicatif pour une suite d'applications basées sur les plus récentes technologies web",
+      "project2": "Fine-tuning d'un grand modèle de langage libre basé sur mes connaissances",
+      "project3": "Développement d'une application de veille technologique pour remplacer Flipboard",
+      "project4": "Programmation d'un ordinateur quantique simulé",
+      "project5": "Création d'un cloud personnel souverain",
+      "conclusion": "L'incubateur numérique personnel est un projet en constante évolution. Je continue d'explorer de nouvelles technologies et de développer de nouveaux projets. Mon objectif est de continuer à apprendre et à innover, tout en partageant mes connaissances et mes expériences avec d'autres passionnés de technologie. Si vous êtes intéressé par l'innovation et les technologies numériques, n'hésitez pas à me contacter. Je serais ravi de discuter de mes projets et de partager mes idées avec vous."
     }
   }
 }

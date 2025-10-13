@@ -95,11 +95,11 @@ export const projectsData: Project[] = [
 	},
 	{
 		id: 'proj003',
-		title: 'Quantification des impacts environnementaux - CRIAQ',
+		title: 'Quantification des impacts environnementaux - Consortium de recherche',
 		category: 'aerospace',
 		year: '2024',
 		description:
-			'Quantification des impacts environnementaux des 35 vecteurs identifiés dans la feuille de route en aérospatiale du Consortium de Recherche et d\'Innovation en Aérospatiale (CRIAQ).',
+			'Quantification des impacts environnementaux des 35 vecteurs identifiés dans la feuille de route en aérospatiale d\'un consortium de recherche et d\'innovation en aérospatiale.',
 		role: 'Leader (L)',
 		status: 'completed'
 	},
@@ -108,18 +108,18 @@ export const projectsData: Project[] = [
 		title: 'Livre blanc - Forum d\'innovation en aérospatiale 2024',
 		category: 'aerospace',
 		year: '2024',
-		client: 'Aéro Montréal',
+		client: 'Grappe industrielle aérospatiale',
 		description:
-			'Rédaction du Livre blanc pour le Forum d\'innovation en aérospatiale 2024 organisé par Aéro Montréal.',
+			'Rédaction du Livre blanc pour le Forum d\'innovation en aérospatiale 2024 organisé par une grappe industrielle aérospatiale.',
 		role: 'Support (S)',
 		status: 'completed'
 	},
 	{
 		id: 'proj005',
-		title: 'Livre blanc - Conférence DAIR to Innovate 2024',
+		title: 'Livre blanc - Conférence d\'innovation en aérospatiale 2024',
 		category: 'aerospace',
 		year: '2024',
-		description: 'Rédaction du Livre blanc pour la conférence DAIR to Innovate 2024.',
+		description: 'Rédaction du Livre blanc pour une conférence d\'innovation en aérospatiale et défense 2024.',
 		role: 'Support (S)',
 		status: 'completed'
 	},
@@ -164,39 +164,39 @@ export const projectsData: Project[] = [
 	},
 	{
 		id: 'proj010',
-		title: 'Modèle financier - Pôle Mirabel Zone d\'innovation Espace Aéro',
+		title: 'Modèle financier - Pôle d\'une zone d\'innovation en aérospatiale',
 		category: 'aerospace',
 		year: '2022',
 		description:
-			'Développement du modèle financier (coûts, revenus, clientèle potentielle, équipements, etc.) pour le plan d\'affaires du pôle Mirabel de la Zone d\'innovation Espace Aéro.',
+			'Développement du modèle financier (coûts, revenus, clientèle potentielle, équipements, etc.) pour le plan d\'affaires d\'un pôle d\'une zone d\'innovation en aérospatiale.',
 		role: 'Leader (L)',
 		status: 'completed'
 	},
 	{
 		id: 'proj011',
-		title: 'Modèle financier - Pôle Saint-Laurent Zone d\'innovation Espace Aéro',
+		title: 'Modèle financier - Pôle d\'une zone d\'innovation en aérospatiale',
 		category: 'aerospace',
 		year: '2022',
 		description:
-			'Développement du modèle financier pour le plan d\'affaires du pôle Saint-Laurent de la Zone d\'innovation Espace Aéro.',
+			'Développement du modèle financier pour le plan d\'affaires d\'un pôle d\'une zone d\'innovation en aérospatiale.',
 		role: 'Leader (L)',
 		status: 'completed'
 	},
 	{
 		id: 'proj012',
-		title: 'Plan d\'affaires - Pôle Mirabel',
+		title: 'Plan d\'affaires - Pôle d\'une zone d\'innovation',
 		category: 'aerospace',
 		year: '2022',
-		description: 'Plan d\'affaires du pôle Mirabel de la Zone d\'innovation Espace Aéro.',
+		description: 'Plan d\'affaires d\'un pôle d\'une zone d\'innovation en aérospatiale.',
 		role: 'Support (S)',
 		status: 'completed'
 	},
 	{
 		id: 'proj013',
-		title: 'Plan d\'affaires - Pôle Saint-Laurent',
+		title: 'Plan d\'affaires - Pôle d\'une zone d\'innovation',
 		category: 'aerospace',
 		year: '2022',
-		description: 'Plan d\'affaires du pôle Saint-Laurent de la Zone d\'innovation Espace Aéro.',
+		description: 'Plan d\'affaires d\'un pôle d\'une zone d\'innovation en aérospatiale.',
 		role: 'Support (S)',
 		status: 'completed'
 	},
@@ -291,9 +291,9 @@ export const projectsData: Project[] = [
 		title: 'Ateliers thématiques - Santé en espace lointain',
 		category: 'health',
 		year: '2023',
-		client: 'Agence spatiale canadienne',
+		client: 'Agence spatiale nationale',
 		description:
-			'Conception et animation d\'ateliers thématiques sur la santé en espace lointain pour l\'Agence spatiale canadienne.',
+			'Conception et animation d\'ateliers thématiques sur la santé en espace lointain pour une agence spatiale nationale.',
 		role: 'Leader (L)',
 		status: 'completed'
 	},

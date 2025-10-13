@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import { t } from 'svelte-i18n';
 
 	const currentYear = new Date().getFullYear();
@@ -6,20 +7,52 @@
 	const socialLinks = [
 		{
 			name: 'Email',
-			href: 'mailto:contact@sciencesconnexions.com',
+			href: 'mailto:francois.provencher@innovitech.com',
 			icon: 'email'
 		},
 		{
 			name: 'LinkedIn',
-			href: 'https://www.linkedin.com/in/francois-provencher',
+			href: 'https://www.linkedin.com/in/françois-provencher-7863bba',
 			icon: 'linkedin'
 		},
 		{
 			name: 'GitHub',
-			href: 'https://github.com/francoisprovencher',
+			href: 'https://github.com/Paderai',
 			icon: 'github'
+		},
+		{
+			name: 'Flipboard',
+			href: 'https://flipboard.com/@SConnexions?from=share&utm_source=flipboard&utm_medium=curator_share',
+			icon: 'flipboard'
 		}
 	];
+
+	let visitorCount = $state(0);
+
+	onMount(() => {
+		// Récupérer le compteur actuel
+		const count = localStorage.getItem('visitorCount');
+		if (count) {
+			visitorCount = parseInt(count, 10);
+		} else {
+			// Premier visiteur
+			visitorCount = 1;
+			localStorage.setItem('visitorCount', '1');
+		}
+
+		// Vérifier si c'est une nouvelle session
+		const lastVisit = sessionStorage.getItem('visited');
+		if (!lastVisit) {
+			// Nouvelle session, incrémenter le compteur
+			visitorCount++;
+			localStorage.setItem('visitorCount', visitorCount.toString());
+			sessionStorage.setItem('visited', 'true');
+		}
+	});
+
+	function formatNumber(num: number): string {
+		return num.toLocaleString('fr-CA');
+	}
 </script>
 
 <footer class="footer">
@@ -87,6 +120,16 @@
 										d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
 									></path>
 								</svg>
+							{:else if link.icon === 'flipboard'}
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									width="20"
+									height="20"
+									viewBox="0 0 24 24"
+									fill="currentColor"
+								>
+									<path d="M0 0v24h24V0H0zm19.2 9.6h-4.8v4.8H9.6v4.8H4.8V4.8h14.4v4.8z"></path>
+								</svg>
 							{/if}
 							<span class="sr-only">{link.name}</span>
 						</a>
@@ -96,7 +139,36 @@
 				<p class="copyright">
 					{$t('footer.copyright', { values: { year: currentYear } })}
 				</p>
+
+				<!-- Compteur de visiteurs -->
+				<div class="visitor-counter">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="16"
+						height="16"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+					>
+						<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+						<circle cx="9" cy="7" r="4"></circle>
+						<path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+						<path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+					</svg>
+					<span>{formatNumber(visitorCount)} {$t('footer.visitors')}</span>
+				</div>
 			</div>
+		</div>
+
+		<!-- Notice IA - Disclaimer -->
+		<div class="ai-disclaimer">
+			<p>
+				{$t('footer.aiNoticeTitle')}
+				{$t('footer.aiNoticeText')}
+			</p>
 		</div>
 	</div>
 </footer>
@@ -124,12 +196,28 @@
 		.footer-content {
 			flex-direction: row;
 			justify-content: space-between;
-			align-items: center;
+			align-items: flex-start;
+			gap: 3rem;
 		}
 	}
 
 	.footer-info {
 		flex: 1;
+	}
+
+	.ai-disclaimer {
+		margin-top: 2rem;
+		padding-top: 1.5rem;
+		border-top: 1px solid rgb(var(--border-color));
+		text-align: center;
+	}
+
+	.ai-disclaimer p {
+		margin: 0;
+		color: rgb(var(--text-muted));
+		font-size: 0.6875rem;
+		line-height: 1.4;
+		opacity: 0.7;
 	}
 
 	.footer-title {
@@ -187,6 +275,30 @@
 		margin: 0;
 		color: rgb(var(--text-muted));
 		font-size: 0.875rem;
+	}
+
+	.visitor-counter {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		margin-top: 0.75rem;
+		padding: 0.5rem 0.75rem;
+		background-color: rgb(var(--bg-secondary));
+		border: 1px solid rgb(var(--border-color));
+		border-radius: 0.375rem;
+		color: rgb(var(--text-muted));
+		font-size: 0.8125rem;
+		width: fit-content;
+	}
+
+	@media (min-width: 768px) {
+		.visitor-counter {
+			margin-left: auto;
+		}
+	}
+
+	.visitor-counter svg {
+		color: rgb(var(--color-primary));
 	}
 
 	.sr-only {
