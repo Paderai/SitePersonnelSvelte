@@ -16,7 +16,7 @@
 						<ellipse cx="50" cy="50" rx="30" ry="25" fill="none" stroke="rgb(var(--color-primary))" stroke-width="2" transform="rotate(60 50 50)" />
 					</svg>
 				</div>
-				<h1 class="site-title">Sciences Connexions</h1>
+				<h1 class="site-title">François Provencher</h1>
 			</div>
 			<p class="tagline">{$t('landing.tagline')}</p>
 			<p class="description">{$t('landing.description')}</p>
@@ -29,24 +29,7 @@
 			</div>
 		</div>
 
-		<div class="hero-visual">
-			<div class="floating-card card-1">
-				<span class="icon">🚀</span>
-				<span class="label">{$t('landing.innovation')}</span>
-			</div>
-			<div class="floating-card card-2">
-				<span class="icon">🤝</span>
-				<span class="label">{$t('landing.collaboration')}</span>
-			</div>
-			<div class="floating-card card-3">
-				<span class="icon">⚙️</span>
-				<span class="label">{$t('landing.expertise')}</span>
-			</div>
-			<div class="floating-card card-4">
-				<span class="icon">🌐</span>
-				<span class="label">{$t('landing.ecosystem')}</span>
-			</div>
-		</div>
+
 	</section>
 </div>
 
