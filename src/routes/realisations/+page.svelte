@@ -27,20 +27,21 @@
 	<div class="container">
 		<header class="page-header">
 			<h1 class="page-title">{$t('nav.achievements')}</h1>
-			<p class="page-subtitle">Mes principales réalisations professionnelles</p>
+			<p class="page-subtitle">{$t('achievements.subtitle')}</p>
+			<p class="translation-notice">{$t('achievements.translationPending')}</p>
 		</header>
 
 		<!-- Filtres -->
 		<div class="filters">
 			<div class="filter-group">
-				<label>Catégorie:</label>
+				<label>{$t('achievements.filterCategory')}</label>
 				<div class="filter-buttons">
 					<button
 						class="filter-button"
 						class:active={selectedCategory === null}
 						onclick={() => (selectedCategory = null)}
 					>
-						Toutes
+						{$t('achievements.filterAll')}
 					</button>
 					{#each projectCategories as category}
 						<button
@@ -48,21 +49,21 @@
 							class:active={selectedCategory === category.id}
 							onclick={() => (selectedCategory = category.id)}
 						>
-							{category.name}
+							{$t(`achievements.categories.${category.id}`)}
 						</button>
 					{/each}
 				</div>
 			</div>
 
 			<div class="filter-group">
-				<label>Année:</label>
+				<label>{$t('achievements.filterYear')}</label>
 				<div class="filter-buttons">
 					<button
 						class="filter-button"
 						class:active={selectedYear === null}
 						onclick={() => (selectedYear = null)}
 					>
-						Toutes
+						{$t('achievements.filterAll')}
 					</button>
 					{#each availableYears as year}
 						<button
@@ -79,7 +80,7 @@
 
 		<!-- Compteur de projets -->
 		<div class="projects-count">
-			<p>{filteredProjects.length} projet{filteredProjects.length > 1 ? 's' : ''} affiché{filteredProjects.length > 1 ? 's' : ''}</p>
+			<p>{filteredProjects.length > 1 ? $t('achievements.projectCountPlural', { values: { count: filteredProjects.length } }) : $t('achievements.projectCount', { values: { count: filteredProjects.length } })}</p>
 		</div>
 
 		<!-- Grille de projets -->
@@ -88,7 +89,7 @@
 				<article class="project-card">
 					<div class="project-header">
 						<div class="project-meta">
-							<span class="project-category">{projectCategories.find((c) => c.id === project.category)?.name}</span>
+							<span class="project-category">{$t(`achievements.categories.${project.category}`)}</span>
 							<span class="project-year">{project.year}</span>
 						</div>
 						<span class="project-status status-{project.status}">
@@ -97,13 +98,13 @@
 					</div>
 					<h3 class="project-title">{project.title}</h3>
 					{#if project.client}
-						<p class="project-client">Client: {project.client}</p>
+						<p class="project-client">{$t('achievements.client')} {project.client}</p>
 					{/if}
 					<p class="project-description">{project.description}</p>
 
 					{#if project.achievements && project.achievements.length > 0}
 						<div class="project-achievements">
-							<strong>Réalisations clés:</strong>
+							<strong>{$t('achievements.keyAchievements')}</strong>
 							<ul>
 								{#each project.achievements.slice(0, 2) as achievement}
 									<li>{achievement}</li>
@@ -125,7 +126,7 @@
 
 		{#if filteredProjects.length === 0}
 			<div class="no-results">
-				<p>Aucun projet ne correspond aux critères sélectionnés.</p>
+				<p>{$t('achievements.noResults')}</p>
 			</div>
 		{/if}
 	</div>
@@ -157,9 +158,16 @@
 	}
 
 	.page-subtitle {
-		margin: 0;
+		margin: 0 0 0.5rem 0;
 		font-size: 1.25rem;
 		color: rgb(var(--text-secondary));
+	}
+
+	.translation-notice {
+		margin: 0;
+		font-size: 0.875rem;
+		color: rgb(var(--text-muted));
+		font-style: italic;
 	}
 
 	.projects-grid {

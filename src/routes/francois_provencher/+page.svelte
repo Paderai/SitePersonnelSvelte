@@ -1,322 +1,174 @@
 <script lang="ts">
 	import { t } from 'svelte-i18n';
 	import { cvData } from '$lib/data/cv-data';
-
-	let expandedSections = $state<Set<string>>(new Set(['profile']));
-
-	function toggleSection(section: string) {
-		if (expandedSections.has(section)) {
-			expandedSections.delete(section);
-		} else {
-			expandedSections.add(section);
-		}
-		expandedSections = new Set(expandedSections);
-	}
 </script>
 
-<div class="page-container">
+<div class="cv-page">
 	<div class="container">
-		<header class="page-header">
-			<h1 class="page-title">{$t('nav.cv')}</h1>
-			<p class="page-subtitle">{cvData.profile.name}</p>
-			<div class="header-actions">
-				<a
-					href="/CV_François-Provencher_Innovitech Sept 2024.docx"
-					download
-					class="download-button"
-				>
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						width="20"
-						height="20"
-						viewBox="0 0 24 24"
-						fill="none"
-						stroke="currentColor"
-						stroke-width="2"
-						stroke-linecap="round"
-						stroke-linejoin="round"
-					>
-						<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-						<polyline points="7 10 12 15 17 10"></polyline>
-						<line x1="12" y1="15" x2="12" y2="3"></line>
-					</svg>
-					Télécharger le CV complet
-				</a>
-			</div>
-		</header>
-
-		<div class="cv-content">
-			<!-- Section Profil -->
-			<div class="accordion">
-				<div class="accordion-item">
-					<button
-						class="accordion-header"
-						class:expanded={expandedSections.has('profile')}
-						onclick={() => toggleSection('profile')}
-					>
-						<span class="accordion-title">👤 Profil</span>
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							width="20"
-							height="20"
-							viewBox="0 0 24 24"
-							fill="none"
-							stroke="currentColor"
-							stroke-width="2"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							class="chevron"
-							class:rotated={expandedSections.has('profile')}
-						>
-							<polyline points="6 9 12 15 18 9"></polyline>
-						</svg>
-					</button>
-					{#if expandedSections.has('profile')}
-						<div class="accordion-content">
-							<p class="summary">{cvData.profile.summary}</p>
-							<div class="contact-grid">
-								<div class="contact-item">
-									<strong>Email:</strong> {cvData.profile.email}
-								</div>
-								<div class="contact-item">
-									<strong>Localisation:</strong> {cvData.profile.location}
-								</div>
-							</div>
-						</div>
-					{/if}
-				</div>
-
-				<!-- Section Expérience -->
-				<div class="accordion-item">
-					<button
-						class="accordion-header"
-						class:expanded={expandedSections.has('experience')}
-						onclick={() => toggleSection('experience')}
-					>
-						<span class="accordion-title">💼 Expérience professionnelle</span>
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							width="20"
-							height="20"
-							viewBox="0 0 24 24"
-							fill="none"
-							stroke="currentColor"
-							stroke-width="2"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							class="chevron"
-							class:rotated={expandedSections.has('experience')}
-						>
-							<polyline points="6 9 12 15 18 9"></polyline>
-						</svg>
-					</button>
-					{#if expandedSections.has('experience')}
-						<div class="accordion-content">
-							{#each cvData.experiences as exp}
-								<div class="experience-item">
-									<h4>{exp.title}</h4>
-									<p class="company">{exp.company} - {exp.location}</p>
-									<p class="period">{exp.period}</p>
-									<ul class="description-list">
-										{#each exp.description as desc}
-											<li>{desc}</li>
-										{/each}
-									</ul>
-									{#if exp.achievements && exp.achievements.length > 0}
-										<div class="achievements">
-											<strong>Réalisations:</strong>
-											<ul>
-												{#each exp.achievements as achievement}
-													<li>{achievement}</li>
-												{/each}
-											</ul>
-										</div>
-									{/if}
-									{#if exp.technologies && exp.technologies.length > 0}
-										<div class="tech-tags">
-											{#each exp.technologies as tech}
-												<span class="tech-tag">{tech}</span>
-											{/each}
-										</div>
-									{/if}
-								</div>
-							{/each}
-						</div>
-					{/if}
-				</div>
-
-				<!-- Section Formation -->
-				<div class="accordion-item">
-					<button
-						class="accordion-header"
-						class:expanded={expandedSections.has('education')}
-						onclick={() => toggleSection('education')}
-					>
-						<span class="accordion-title">🎓 Formation</span>
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							width="20"
-							height="20"
-							viewBox="0 0 24 24"
-							fill="none"
-							stroke="currentColor"
-							stroke-width="2"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							class="chevron"
-							class:rotated={expandedSections.has('education')}
-						>
-							<polyline points="6 9 12 15 18 9"></polyline>
-						</svg>
-					</button>
-					{#if expandedSections.has('education')}
-						<div class="accordion-content">
-							{#each cvData.education as edu}
-								<div class="education-item">
-									<h4>{edu.degree}</h4>
-									<p class="institution">{edu.institution} - {edu.location}</p>
-									<p class="period">{edu.period}</p>
-									{#if edu.description}
-										<p class="description">{edu.description}</p>
-									{/if}
-								</div>
-							{/each}
-						</div>
-					{/if}
-				</div>
-
-				<!-- Section Compétences -->
-				<div class="accordion-item">
-					<button
-						class="accordion-header"
-						class:expanded={expandedSections.has('skills')}
-						onclick={() => toggleSection('skills')}
-					>
-						<span class="accordion-title">🛠️ Compétences</span>
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							width="20"
-							height="20"
-							viewBox="0 0 24 24"
-							fill="none"
-							stroke="currentColor"
-							stroke-width="2"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							class="chevron"
-							class:rotated={expandedSections.has('skills')}
-						>
-							<polyline points="6 9 12 15 18 9"></polyline>
-						</svg>
-					</button>
-					{#if expandedSections.has('skills')}
-						<div class="accordion-content">
-							<div class="skills-grid">
-								{#each cvData.skills as skillCategory}
-									<div class="skill-category">
-										<h4>{skillCategory.category}</h4>
-										<div class="skill-tags">
-											{#each skillCategory.items as skill}
-												<span class="skill-tag">{skill}</span>
-											{/each}
-										</div>
-									</div>
-								{/each}
-							</div>
-						</div>
-					{/if}
-				</div>
-
-				<!-- Section Langues -->
-				<div class="accordion-item">
-					<button
-						class="accordion-header"
-						class:expanded={expandedSections.has('languages')}
-						onclick={() => toggleSection('languages')}
-					>
-						<span class="accordion-title">🌍 Langues</span>
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							width="20"
-							height="20"
-							viewBox="0 0 24 24"
-							fill="none"
-							stroke="currentColor"
-							stroke-width="2"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							class="chevron"
-							class:rotated={expandedSections.has('languages')}
-						>
-							<polyline points="6 9 12 15 18 9"></polyline>
-						</svg>
-					</button>
-					{#if expandedSections.has('languages')}
-						<div class="accordion-content">
-							<div class="languages-grid">
-								{#each cvData.languages as lang}
-									<div class="language-item">
-										<span class="language-name">{lang.language}</span>
-										<span class="language-level">{lang.level}</span>
-									</div>
-								{/each}
-							</div>
-						</div>
-					{/if}
-				</div>
-
-				<!-- Section Certifications -->
-				{#if cvData.certifications.length > 0}
-					<div class="accordion-item">
-						<button
-							class="accordion-header"
-							class:expanded={expandedSections.has('certifications')}
-							onclick={() => toggleSection('certifications')}
-						>
-							<span class="accordion-title">📜 Certifications</span>
+		<!-- En-tête avec photo -->
+		<header class="cv-header">
+			<div class="header-content">
+				<img src="/photo-profile.jpg" alt={cvData.profile.name} class="cv-avatar" />
+				<div class="header-info">
+					<h1 class="cv-title">{cvData.profile.name}</h1>
+					<p class="cv-subtitle">{cvData.profile.title}</p>
+					<div class="contact-links">
+						<div class="contact-item">
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
-								width="20"
-								height="20"
+								width="16"
+								height="16"
 								viewBox="0 0 24 24"
 								fill="none"
 								stroke="currentColor"
 								stroke-width="2"
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								class="chevron"
-								class:rotated={expandedSections.has('certifications')}
 							>
-								<polyline points="6 9 12 15 18 9"></polyline>
+								<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+								<circle cx="12" cy="10" r="3"></circle>
 							</svg>
-						</button>
-						{#if expandedSections.has('certifications')}
-							<div class="accordion-content">
-								{#each cvData.certifications as cert}
-									<div class="certification-item">
-										<h4>{cert.name}</h4>
-										<p class="issuer">{cert.issuer}</p>
-										<p class="date">{cert.date}</p>
-										{#if cert.url}
-											<a href={cert.url} target="_blank" rel="noopener noreferrer"
-												>Voir la certification</a
-											>
-										{/if}
-									</div>
+							<span>{cvData.profile.location}</span>
+						</div>
+						<div class="contact-item">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								width="16"
+								height="16"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2"
+							>
+								<path
+									d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+								></path>
+								<polyline points="22,6 12,13 2,6"></polyline>
+							</svg>
+							<a href="mailto:{cvData.profile.email}">{cvData.profile.email}</a>
+						</div>
+						{#if cvData.profile.linkedin}
+							<div class="contact-item">
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									width="16"
+									height="16"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+								>
+									<path
+										d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+									></path>
+									<rect x="2" y="9" width="4" height="12"></rect>
+									<circle cx="4" cy="4" r="2"></circle>
+								</svg>
+								<a href={cvData.profile.linkedin} target="_blank" rel="noopener noreferrer"
+									>LinkedIn</a
+								>
+							</div>
+						{/if}
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<!-- Contenu du CV -->
+		<div class="cv-content">
+			<!-- Profil -->
+			<section class="cv-section">
+				<h2 class="section-title">{$t('bioPage.about')}</h2>
+				<p class="profile-summary">{cvData.profile.summary}</p>
+			</section>
+
+			<!-- Expérience professionnelle -->
+			<section class="cv-section">
+				<h2 class="section-title">Expérience professionnelle</h2>
+				{#each cvData.experiences as exp}
+					<div class="experience-item">
+						<div class="experience-header">
+							<h3 class="experience-title">{exp.title}</h3>
+							<span class="experience-period">{exp.period}</span>
+						</div>
+						<p class="experience-company">{exp.company} - {exp.location}</p>
+						<ul class="experience-description">
+							{#each exp.description as desc}
+								<li>{desc}</li>
+							{/each}
+						</ul>
+						{#if exp.achievements && exp.achievements.length > 0}
+							<div class="experience-achievements">
+								<strong>Réalisations clés :</strong>
+								<ul>
+									{#each exp.achievements as achievement}
+										<li>{achievement}</li>
+									{/each}
+								</ul>
+							</div>
+						{/if}
+						{#if exp.technologies && exp.technologies.length > 0}
+							<div class="experience-tech">
+								{#each exp.technologies as tech}
+									<span class="tech-badge">{tech}</span>
 								{/each}
 							</div>
 						{/if}
 					</div>
-				{/if}
-			</div>
+				{/each}
+			</section>
+
+			<!-- Compétences -->
+			<section class="cv-section">
+				<h2 class="section-title">{$t('bioPage.expertise')}</h2>
+				<div class="skills-grid">
+					{#each cvData.skills as skillCategory}
+						<div class="skill-category">
+							<h3 class="skill-category-title">{skillCategory.category}</h3>
+							<ul class="skill-list">
+								{#each skillCategory.items as skill}
+									<li>{skill}</li>
+								{/each}
+							</ul>
+						</div>
+					{/each}
+				</div>
+			</section>
+
+			<!-- Formation -->
+			<section class="cv-section">
+				<h2 class="section-title">{$t('bioPage.education')}</h2>
+				{#each cvData.education as edu}
+					<div class="education-item">
+						<h3 class="education-degree">{edu.degree}</h3>
+						<p class="education-institution">{edu.institution} - {edu.location}</p>
+						<p class="education-period">{edu.period}</p>
+						{#if edu.description}
+							<p class="education-description">{edu.description}</p>
+						{/if}
+					</div>
+				{/each}
+			</section>
+
+			<!-- Langues -->
+			<section class="cv-section">
+				<h2 class="section-title">{$t('bioPage.languages')}</h2>
+				<div class="languages-grid">
+					{#each cvData.languages as lang}
+						<div class="language-item">
+							<span class="language-name">{lang.language}</span>
+							<span class="language-level">{lang.level}</span>
+						</div>
+					{/each}
+				</div>
+			</section>
 		</div>
 	</div>
 </div>
 
 <style>
-	.page-container {
+	.cv-page {
 		width: 100%;
 		min-height: calc(100vh - 16rem);
+		background-color: rgb(var(--bg-primary));
 	}
 
 	.container {
@@ -325,292 +177,200 @@
 		padding: 3rem 1rem;
 	}
 
-	.page-header {
+	/* En-tête */
+	.cv-header {
 		margin-bottom: 3rem;
-		padding-bottom: 2rem;
-		border-bottom: 2px solid rgb(var(--border-color));
+		padding: 2rem;
+		background-color: rgb(var(--bg-secondary));
+		border-radius: 1rem;
+		border: 1px solid rgb(var(--border-color));
 	}
 
-	.page-title {
+	.header-content {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 2rem;
+		text-align: center;
+	}
+
+	@media (min-width: 640px) {
+		.header-content {
+			flex-direction: row;
+			text-align: left;
+		}
+	}
+
+	.cv-avatar {
+		width: 10rem;
+		height: 10rem;
+		border-radius: 50%;
+		object-fit: cover;
+		box-shadow: var(--shadow-md);
+		border: 4px solid rgb(var(--color-primary));
+		flex-shrink: 0;
+	}
+
+	.header-info {
+		flex: 1;
+	}
+
+	.cv-title {
 		margin: 0 0 0.5rem 0;
-		font-size: 2.5rem;
+		font-size: 2rem;
 		font-weight: 700;
 		color: rgb(var(--text-primary));
 	}
 
-	.page-subtitle {
-		margin: 0 0 1.5rem 0;
+	.cv-subtitle {
+		margin: 0 0 1rem 0;
 		font-size: 1.25rem;
-		color: rgb(var(--text-secondary));
-	}
-
-	.header-actions {
-		display: flex;
-		gap: 1rem;
-	}
-
-	.download-button {
-		display: inline-flex;
-		align-items: center;
-		gap: 0.5rem;
-		padding: 0.75rem 1.5rem;
-		background-color: rgb(var(--color-primary));
-		color: white;
-		border-radius: 0.5rem;
-		text-decoration: none;
+		color: rgb(var(--color-primary));
 		font-weight: 500;
-		transition: all 0.2s ease;
 	}
 
-	.download-button:hover {
-		background-color: rgb(var(--color-primary-dark));
-		transform: translateY(-2px);
-		box-shadow: var(--shadow-lg);
-	}
-
-	.cv-content {
-		margin-top: 2rem;
-	}
-
-	.accordion {
+	.contact-links {
 		display: flex;
 		flex-direction: column;
-		gap: 0.75rem;
-	}
-
-	.accordion-item {
-		border: 1px solid rgb(var(--border-color));
-		border-radius: 0.75rem;
-		overflow: hidden;
-		background-color: rgb(var(--bg-secondary));
-	}
-
-	.accordion-header {
-		width: 100%;
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		padding: 1.25rem 1.5rem;
-		background: none;
-		border: none;
-		cursor: pointer;
-		transition: background-color 0.2s ease;
-		text-align: left;
-	}
-
-	.accordion-header:hover {
-		background-color: rgb(var(--bg-tertiary));
-	}
-
-	.accordion-header.expanded {
-		background-color: rgb(var(--color-primary) / 0.05);
-	}
-
-	.accordion-title {
-		font-size: 1.125rem;
-		font-weight: 600;
-		color: rgb(var(--text-primary));
-	}
-
-	.chevron {
-		transition: transform 0.2s ease;
-		color: rgb(var(--text-secondary));
-	}
-
-	.chevron.rotated {
-		transform: rotate(180deg);
-	}
-
-	.accordion-content {
-		padding: 0 1.5rem 1.5rem 1.5rem;
-		color: rgb(var(--text-secondary));
-		animation: slideDown 0.2s ease;
-	}
-
-	@keyframes slideDown {
-		from {
-			opacity: 0;
-			transform: translateY(-0.5rem);
-		}
-		to {
-			opacity: 1;
-			transform: translateY(0);
-		}
-	}
-
-	/* Profile Section */
-	.summary {
-		margin: 0 0 1.5rem 0;
-		font-size: 1.125rem;
-		line-height: 1.7;
-		color: rgb(var(--text-primary));
-	}
-
-	.contact-grid {
-		display: grid;
-		grid-template-columns: 1fr;
-		gap: 0.75rem;
-	}
-
-	@media (min-width: 640px) {
-		.contact-grid {
-			grid-template-columns: repeat(2, 1fr);
-		}
+		gap: 0.5rem;
 	}
 
 	.contact-item {
-		padding: 0.75rem;
-		background-color: rgb(var(--bg-tertiary));
-		border-radius: 0.375rem;
-		font-size: 0.9375rem;
-	}
-
-	.contact-item strong {
-		color: rgb(var(--text-primary));
-	}
-
-	/* Experience Section */
-	.experience-item {
-		margin-bottom: 2rem;
-		padding-bottom: 2rem;
-		border-bottom: 1px solid rgb(var(--border-color));
-	}
-
-	.experience-item:last-child {
-		margin-bottom: 0;
-		padding-bottom: 0;
-		border-bottom: none;
-	}
-
-	.experience-item h4 {
-		margin: 0 0 0.5rem 0;
-		font-size: 1.25rem;
-		font-weight: 600;
-		color: rgb(var(--text-primary));
-	}
-
-	.company {
-		margin: 0 0 0.25rem 0;
-		color: rgb(var(--text-primary));
-		font-weight: 500;
-	}
-
-	.period {
-		margin: 0 0 1rem 0;
-		color: rgb(var(--text-muted));
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		color: rgb(var(--text-secondary));
 		font-size: 0.875rem;
 	}
 
-	.description-list {
-		margin: 0 0 1rem 0;
-		padding-left: 1.5rem;
-	}
-
-	.description-list li {
-		margin-bottom: 0.5rem;
-		line-height: 1.6;
-	}
-
-	.achievements {
-		margin: 1rem 0;
-		padding: 1rem;
-		background-color: rgb(var(--color-accent) / 0.05);
-		border-left: 3px solid rgb(var(--color-accent));
-		border-radius: 0.375rem;
-	}
-
-	.achievements strong {
-		color: rgb(var(--text-primary));
-	}
-
-	.achievements ul {
-		margin: 0.5rem 0 0 0;
-		padding-left: 1.5rem;
-	}
-
-	.tech-tags {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.5rem;
-		margin-top: 1rem;
-	}
-
-	.tech-tag {
-		display: inline-block;
-		padding: 0.25rem 0.75rem;
-		background-color: rgb(var(--color-primary) / 0.1);
+	.contact-item svg {
 		color: rgb(var(--color-primary));
-		border-radius: 9999px;
-		font-size: 0.75rem;
-		font-weight: 500;
+		flex-shrink: 0;
 	}
 
-	/* Education Section */
-	.education-item {
-		margin-bottom: 1.5rem;
-		padding: 1.25rem;
-		background-color: rgb(var(--bg-tertiary));
-		border-radius: 0.5rem;
+	.contact-item a {
+		color: rgb(var(--text-secondary));
+		text-decoration: none;
+		transition: color 0.2s ease;
 	}
 
-	.education-item:last-child {
-		margin-bottom: 0;
+	.contact-item a:hover {
+		color: rgb(var(--color-primary));
 	}
 
-	.education-item h4 {
-		margin: 0 0 0.5rem 0;
-		font-size: 1.125rem;
+	/* Contenu */
+	.cv-content {
+		display: flex;
+		flex-direction: column;
+		gap: 2.5rem;
+	}
+
+	.cv-section {
+		padding: 2rem;
+		background-color: rgb(var(--bg-secondary));
+		border-radius: 0.75rem;
+		border: 1px solid rgb(var(--border-color));
+	}
+
+	.section-title {
+		margin: 0 0 1.5rem 0;
+		font-size: 1.5rem;
 		font-weight: 600;
-		color: rgb(var(--text-primary));
+		color: rgb(var(--color-primary));
+		border-bottom: 2px solid rgb(var(--color-primary));
+		padding-bottom: 0.5rem;
 	}
 
-	.institution {
-		margin: 0 0 0.25rem 0;
-		color: rgb(var(--text-secondary));
-		font-weight: 500;
-	}
-
-	.description {
-		margin: 0.5rem 0 0 0;
-		font-style: italic;
+	.profile-summary {
+		margin: 0;
+		font-size: 1.125rem;
+		line-height: 1.7;
 		color: rgb(var(--text-secondary));
 	}
 
-	/* Skills Section */
+	/* Compétences */
 	.skills-grid {
 		display: grid;
 		grid-template-columns: 1fr;
 		gap: 1.5rem;
 	}
 
-	.skill-category h4 {
+	@media (min-width: 768px) {
+		.skills-grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	.skill-category-title {
 		margin: 0 0 0.75rem 0;
 		font-size: 1.125rem;
 		font-weight: 600;
-		color: rgb(var(--color-primary));
-	}
-
-	.skill-tags {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.5rem;
-	}
-
-	.skill-tag {
-		display: inline-block;
-		padding: 0.375rem 0.875rem;
-		background-color: rgb(var(--bg-tertiary));
-		border: 1px solid rgb(var(--border-color));
-		border-radius: 0.375rem;
-		font-size: 0.875rem;
 		color: rgb(var(--text-primary));
 	}
 
-	/* Languages Section */
+	.skill-list {
+		margin: 0;
+		padding-left: 1.5rem;
+		list-style-type: disc;
+	}
+
+	.skill-list li {
+		margin-bottom: 0.5rem;
+		color: rgb(var(--text-secondary));
+		line-height: 1.5;
+	}
+
+	/* Formation */
+	.education-item {
+		margin-bottom: 1.5rem;
+		padding-bottom: 1.5rem;
+		border-bottom: 1px solid rgb(var(--border-color));
+	}
+
+	.education-item:last-child {
+		margin-bottom: 0;
+		padding-bottom: 0;
+		border-bottom: none;
+	}
+
+	.education-degree {
+		margin: 0 0 0.5rem 0;
+		font-size: 1.125rem;
+		font-weight: 600;
+		color: rgb(var(--text-primary));
+	}
+
+	.education-institution {
+		margin: 0 0 0.25rem 0;
+		color: rgb(var(--text-secondary));
+		font-weight: 500;
+	}
+
+	.education-period {
+		margin: 0 0 0.5rem 0;
+		color: rgb(var(--text-muted));
+		font-size: 0.875rem;
+		font-style: italic;
+	}
+
+	.education-description {
+		margin: 0;
+		color: rgb(var(--text-secondary));
+		line-height: 1.6;
+		font-size: 0.9375rem;
+	}
+
+	/* Langues */
 	.languages-grid {
 		display: grid;
 		grid-template-columns: 1fr;
 		gap: 0.75rem;
+	}
+
+	@media (min-width: 640px) {
+		.languages-grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
 	}
 
 	.language-item {
@@ -620,6 +380,7 @@
 		padding: 1rem;
 		background-color: rgb(var(--bg-tertiary));
 		border-radius: 0.5rem;
+		border: 1px solid rgb(var(--border-color));
 	}
 
 	.language-name {
@@ -632,43 +393,101 @@
 		font-size: 0.875rem;
 	}
 
-	/* Certifications Section */
-	.certification-item {
-		margin-bottom: 1.5rem;
-		padding: 1.25rem;
-		background-color: rgb(var(--bg-tertiary));
-		border-radius: 0.5rem;
+	/* Expérience professionnelle */
+	.experience-item {
+		margin-bottom: 2rem;
+		padding-bottom: 2rem;
+		border-bottom: 1px solid rgb(var(--border-color));
 	}
 
-	.certification-item:last-child {
+	.experience-item:last-child {
 		margin-bottom: 0;
+		padding-bottom: 0;
+		border-bottom: none;
 	}
 
-	.certification-item h4 {
-		margin: 0 0 0.5rem 0;
+	.experience-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		gap: 1rem;
+		margin-bottom: 0.5rem;
+		flex-wrap: wrap;
+	}
+
+	.experience-title {
+		margin: 0;
 		font-size: 1.125rem;
 		font-weight: 600;
 		color: rgb(var(--text-primary));
+		flex: 1;
+		min-width: 200px;
 	}
 
-	.issuer {
-		margin: 0 0 0.25rem 0;
-		color: rgb(var(--text-secondary));
-	}
-
-	.date {
-		margin: 0 0 0.75rem 0;
+	.experience-period {
 		color: rgb(var(--text-muted));
 		font-size: 0.875rem;
+		font-weight: 500;
+		white-space: nowrap;
 	}
 
-	.certification-item a {
-		color: rgb(var(--color-primary));
-		text-decoration: none;
+	.experience-company {
+		margin: 0 0 1rem 0;
+		color: rgb(var(--text-secondary));
 		font-weight: 500;
 	}
 
-	.certification-item a:hover {
-		text-decoration: underline;
+	.experience-description {
+		margin: 0 0 1rem 0;
+		padding-left: 1.5rem;
+		list-style-type: disc;
+	}
+
+	.experience-description li {
+		margin-bottom: 0.5rem;
+		color: rgb(var(--text-secondary));
+		line-height: 1.6;
+	}
+
+	.experience-achievements {
+		margin: 1rem 0;
+		padding: 0.75rem;
+		background-color: rgb(var(--bg-primary));
+		border-left: 3px solid rgb(var(--color-accent));
+		border-radius: 0.375rem;
+	}
+
+	.experience-achievements strong {
+		color: rgb(var(--text-primary));
+		font-size: 0.875rem;
+	}
+
+	.experience-achievements ul {
+		margin: 0.5rem 0 0 0;
+		padding-left: 1.25rem;
+	}
+
+	.experience-achievements li {
+		font-size: 0.875rem;
+		margin-bottom: 0.25rem;
+		color: rgb(var(--text-secondary));
+	}
+
+	.experience-tech {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.375rem;
+		margin-top: 1rem;
+	}
+
+	.tech-badge {
+		display: inline-block;
+		padding: 0.25rem 0.75rem;
+		font-size: 0.75rem;
+		font-weight: 500;
+		background-color: rgb(var(--color-primary) / 0.1);
+		color: rgb(var(--color-primary));
+		border-radius: 9999px;
+		border: 1px solid rgb(var(--color-primary) / 0.2);
 	}
 </style>

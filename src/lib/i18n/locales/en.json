@@ -45,6 +45,113 @@
     "open": "Open",
     "menu": "Menu"
   },
+  "bioPage": {
+    "about": "About",
+    "expertise": "Expertise",
+    "languages": "Languages",
+    "education": "Education",
+    "contact": "Contact"
+  },
+  "achievements": {
+    "subtitle": "My main professional achievements",
+    "translationPending": "Translations coming soon",
+    "filterCategory": "Category:",
+    "filterYear": "Year:",
+    "filterAll": "All",
+    "projectCount": "{count} project displayed",
+    "projectCountPlural": "{count} projects displayed",
+    "client": "Client:",
+    "keyAchievements": "Key achievements:",
+    "noResults": "No projects match the selected criteria.",
+    "categories": {
+      "aerospace": "Aerospace",
+      "drones": "Drones and AAM",
+      "health": "Healthcare",
+      "innovation-ecosystems": "Innovation Ecosystems",
+      "energy": "Energy",
+      "digital-ai": "Digital and AI",
+      "tools": "Tools and Methodologies"
+    }
+  },
+  "landing": {
+    "tagline": "Personal website of François Provencher, Eng., M.Sc.A.",
+    "description": "I am a curious and passionate innovator, human-centered and data-driven. I created this site to share my passion for science, technology and innovation. You will find my professional background, my achievements, as well as articles and reflections on innovation and technology.",
+    "discover": "Discover who I am",
+    "learnMore": "Learn more",
+    "innovation": "Innovation",
+    "collaboration": "Collaboration",
+    "expertise": "Technical Depth",
+    "ecosystem": "Ecosystem",
+    "mission": {
+      "title": "Our mission",
+      "subtitle": "Building bridges between different innovation stakeholders to accelerate the development of technological solutions",
+      "research": {
+        "title": "Scientific Research",
+        "description": "Connection with research centers and universities to promote discoveries and accelerate technology transfer."
+      },
+      "industry": {
+        "title": "Industry & Enterprises",
+        "description": "Supporting companies in their innovation projects, from strategy to implementation of concrete solutions."
+      },
+      "innovation": {
+        "title": "Innovation Ecosystems",
+        "description": "Development and animation of collaborative ecosystems to stimulate open innovation and co-creation."
+      }
+    },
+    "domains": {
+      "title": "Areas of Intervention",
+      "subtitle": "In-depth sectoral expertise combined with a cross-functional view of innovation",
+      "aerospace": {
+        "title": "Aerospace",
+        "item1": "Advanced air mobility",
+        "item2": "Space technologies",
+        "item3": "Collaborative innovation"
+      },
+      "health": {
+        "title": "Medical Technologies",
+        "item1": "Innovative medical devices",
+        "item2": "Digital health",
+        "item3": "Regulatory validation"
+      },
+      "tech": {
+        "title": "Digital Technologies",
+        "item1": "Artificial intelligence",
+        "item2": "Digital transformation",
+        "item3": "Application development"
+      },
+      "transformation": {
+        "title": "Organizational Transformation",
+        "item1": "Change management",
+        "item2": "Innovation strategy",
+        "item3": "Ecosystem development"
+      }
+    },
+    "approach": {
+      "title": "Our approach",
+      "subtitle": "A proven methodology to transform ideas into concrete achievements",
+      "step1": {
+        "title": "Analysis",
+        "description": "In-depth understanding of issues, needs and organizational context"
+      },
+      "step2": {
+        "title": "Strategy",
+        "description": "Development of a roadmap aligned with objectives and capabilities"
+      },
+      "step3": {
+        "title": "Implementation",
+        "description": "Support in the execution and management of innovation projects"
+      },
+      "step4": {
+        "title": "Sustainability",
+        "description": "Knowledge transfer and development of internal capabilities"
+      }
+    },
+    "cta": {
+      "title": "Ready to innovate together?",
+      "description": "Discover how we can support you in your innovation projects",
+      "button": "Explore our services"
+    }
+  },
   "settings": {
     "title": "Appearance Settings",
     "subtitle": "Customize the site appearance according to your preferences",

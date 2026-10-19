@@ -6,20 +6,18 @@ const config = {
 	// Consult https://svelte.dev/docs/kit/integrations
 	// for more information about preprocessors
 	preprocess: vitePreprocess(),
-	kit: { adapter: adapter() }
+	kit: {
+		adapter: adapter({
+			fallback: 'index.html', // important si vous avez du routing SPA
+		}),
+		paths: {
+			base: '',               // important que ce soit vide pour cPanel
+			assets: '',
+		},
+		prerender: {
+			entries: ['*'],         // tout pré-générer
+		}
+	}
 };
 
-export default {
-  kit: {
-    adapter: adapter({
-      fallback: 'index.html', // important si vous avez du routing SPA
-    }),
-    paths: {
-      base: '',               // important que ce soit vide pour cPanel
-      assets: '',
-    },
-    prerender: {
-      entries: ['*'],         // tout pré-générer
-    }
-  }
-};
+export default config;

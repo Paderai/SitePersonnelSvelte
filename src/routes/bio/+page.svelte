@@ -17,12 +17,12 @@
 
 		<article class="content">
 			<section class="bio-section highlight">
-				<h2>À propos</h2>
+				<h2>{$t('bioPage.about')}</h2>
 				<p class="lead">{cvData.profile.summary}</p>
 			</section>
 
 			<section class="bio-section">
-				<h2>Expertise</h2>
+				<h2>{$t('bioPage.expertise')}</h2>
 				<div class="skills-grid">
 					{#each cvData.skills as skillCategory}
 						<div class="skill-category">
@@ -38,7 +38,7 @@
 			</section>
 
 			<section class="bio-section">
-				<h2>Langues</h2>
+				<h2>{$t('bioPage.languages')}</h2>
 				<div class="languages-list">
 					{#each cvData.languages as lang}
 						<div class="language-item">
@@ -50,7 +50,7 @@
 			</section>
 
 			<section class="bio-section">
-				<h2>Formation</h2>
+				<h2>{$t('bioPage.education')}</h2>
 				{#each cvData.education as edu}
 					<div class="education-item">
 						<h3>{edu.degree}</h3>
@@ -64,7 +64,7 @@
 			</section>
 
 			<section class="bio-section">
-				<h2>Contact</h2>
+				<h2>{$t('bioPage.contact')}</h2>
 				<div class="contact-info">
 					<div class="contact-item">
 						<svg

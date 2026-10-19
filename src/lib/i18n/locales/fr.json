@@ -45,6 +45,113 @@
     "open": "Ouvrir",
     "menu": "Menu"
   },
+  "bioPage": {
+    "about": "À propos",
+    "expertise": "Expertise",
+    "languages": "Langues",
+    "education": "Formation",
+    "contact": "Contact"
+  },
+  "achievements": {
+    "subtitle": "Mes principales réalisations professionnelles",
+    "translationPending": "Traductions à venir",
+    "filterCategory": "Catégorie:",
+    "filterYear": "Année:",
+    "filterAll": "Toutes",
+    "projectCount": "{count} projet affiché",
+    "projectCountPlural": "{count} projets affichés",
+    "client": "Client:",
+    "keyAchievements": "Réalisations clés:",
+    "noResults": "Aucun projet ne correspond aux critères sélectionnés.",
+    "categories": {
+      "aerospace": "Aérospatiale",
+      "drones": "Drones et MAA",
+      "health": "Santé",
+      "innovation-ecosystems": "Écosystèmes d'innovation",
+      "energy": "Énergie",
+      "digital-ai": "Numérique et IA",
+      "tools": "Outils et méthodologies"
+    }
+  },
+  "landing": {
+    "tagline": "Site personnel de François Provencher, Ing., M.Sc.A.",
+    "description": "Je suis un Innovateur curieux et passionné, centré sur l'humain et guidé par les données. J'ai créé ce site pour partager ma passion pour les sciences, les technologies et l'innovation. Vous y trouverez mon parcours professionnel, mes réalisations, ainsi que des articles et des réflexions sur l'innovation et la technologie.",
+    "discover": "Découvrir qui je suis",
+    "learnMore": "En savoir plus",
+    "innovation": "Innovation",
+    "collaboration": "Collaboration",
+    "expertise": "Profondeur technique",
+    "ecosystem": "Écosystème",
+    "mission": {
+      "title": "Mon objectif",
+      "subtitle": "Créer des ponts entre les différents acteurs de l'innovation pour accélérer le développement de solutions technologiques",
+      "research": {
+        "title": "Recherche scientifique",
+        "description": "Connexion avec les centres de recherche et universités pour valoriser les découvertes et accélérer le transfert technologique."
+      },
+      "industry": {
+        "title": "Industrie & Entreprises",
+        "description": "Accompagnement des entreprises dans leurs projets d'innovation, de la stratégie à la mise en œuvre de solutions concrètes."
+      },
+      "innovation": {
+        "title": "Écosystèmes d'innovation",
+        "description": "Développement et animation d'écosystèmes collaboratifs pour stimuler l'innovation ouverte et la co-création."
+      }
+    },
+    "domains": {
+      "title": "Domaines d'intervention",
+      "subtitle": "Une expertise sectorielle approfondie combinée à une vision transversale de l'innovation",
+      "aerospace": {
+        "title": "Aérospatiale",
+        "item1": "Mobilité aérienne avancée",
+        "item2": "Technologies spatiales",
+        "item3": "Innovation collaborative"
+      },
+      "health": {
+        "title": "Technologies médicales",
+        "item1": "Dispositifs médicaux innovants",
+        "item2": "Santé numérique",
+        "item3": "Validation réglementaire"
+      },
+      "tech": {
+        "title": "Technologies numériques",
+        "item1": "Intelligence artificielle",
+        "item2": "Transformation numérique",
+        "item3": "Développement applicatif"
+      },
+      "transformation": {
+        "title": "Transformation organisationnelle",
+        "item1": "Gestion du changement",
+        "item2": "Stratégie d'innovation",
+        "item3": "Développement d'écosystèmes"
+      }
+    },
+    "approach": {
+      "title": "Notre approche",
+      "subtitle": "Une méthodologie éprouvée pour transformer les idées en réalisations concrètes",
+      "step1": {
+        "title": "Analyse",
+        "description": "Compréhension approfondie des enjeux, des besoins et du contexte organisationnel"
+      },
+      "step2": {
+        "title": "Stratégie",
+        "description": "Élaboration d'une feuille de route alignée avec les objectifs et les capacités"
+      },
+      "step3": {
+        "title": "Mise en œuvre",
+        "description": "Accompagnement dans l'exécution et la gestion de projets d'innovation"
+      },
+      "step4": {
+        "title": "Pérennisation",
+        "description": "Transfert de connaissances et développement des capacités internes"
+      }
+    },
+    "cta": {
+      "title": "Prêt à innover ensemble?",
+      "description": "Découvrez comment nous pouvons vous accompagner dans vos projets d'innovation",
+      "button": "Explorez nos services"
+    }
+  },
   "blog": {
     "title": "Blog",
     "subtitle": "Articles et réflexions sur l'innovation et la technologie",

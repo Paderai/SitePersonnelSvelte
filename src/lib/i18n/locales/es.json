@@ -45,6 +45,113 @@
     "open": "Abrir",
     "menu": "Menú"
   },
+  "bioPage": {
+    "about": "Acerca de",
+    "expertise": "Experiencia",
+    "languages": "Idiomas",
+    "education": "Formación",
+    "contact": "Contacto"
+  },
+  "achievements": {
+    "subtitle": "Mis principales logros profesionales",
+    "translationPending": "Traducciones próximamente",
+    "filterCategory": "Categoría:",
+    "filterYear": "Año:",
+    "filterAll": "Todas",
+    "projectCount": "{count} proyecto mostrado",
+    "projectCountPlural": "{count} proyectos mostrados",
+    "client": "Cliente:",
+    "keyAchievements": "Logros clave:",
+    "noResults": "Ningún proyecto coincide con los criterios seleccionados.",
+    "categories": {
+      "aerospace": "Aeroespacial",
+      "drones": "Drones y MAA",
+      "health": "Salud",
+      "innovation-ecosystems": "Ecosistemas de innovación",
+      "energy": "Energía",
+      "digital-ai": "Digital e IA",
+      "tools": "Herramientas y metodologías"
+    }
+  },
+  "landing": {
+    "tagline": "Sitio personal de François Provencher, Ing., M.Sc.A.",
+    "description": "Soy un innovador curioso y apasionado, centrado en el ser humano y guiado por datos. Creé este sitio para compartir mi pasión por las ciencias, las tecnologías y la innovación. Encontrará mi trayectoria profesional, mis logros, así como artículos y reflexiones sobre innovación y tecnología.",
+    "discover": "Descubrir quién soy",
+    "learnMore": "Saber más",
+    "innovation": "Innovación",
+    "collaboration": "Colaboración",
+    "expertise": "Profundidad técnica",
+    "ecosystem": "Ecosistema",
+    "mission": {
+      "title": "Nuestra misión",
+      "subtitle": "Crear puentes entre los diferentes actores de la innovación para acelerar el desarrollo de soluciones tecnológicas",
+      "research": {
+        "title": "Investigación Científica",
+        "description": "Conexión con centros de investigación y universidades para promover descubrimientos y acelerar la transferencia tecnológica."
+      },
+      "industry": {
+        "title": "Industria y Empresas",
+        "description": "Acompañamiento de empresas en sus proyectos de innovación, desde la estrategia hasta la implementación de soluciones concretas."
+      },
+      "innovation": {
+        "title": "Ecosistemas de Innovación",
+        "description": "Desarrollo y animación de ecosistemas colaborativos para estimular la innovación abierta y la co-creación."
+      }
+    },
+    "domains": {
+      "title": "Áreas de intervención",
+      "subtitle": "Experiencia sectorial profunda combinada con una visión transversal de la innovación",
+      "aerospace": {
+        "title": "Aeroespacial",
+        "item1": "Movilidad aérea avanzada",
+        "item2": "Tecnologías espaciales",
+        "item3": "Innovación colaborativa"
+      },
+      "health": {
+        "title": "Tecnologías Médicas",
+        "item1": "Dispositivos médicos innovadores",
+        "item2": "Salud digital",
+        "item3": "Validación regulatoria"
+      },
+      "tech": {
+        "title": "Tecnologías Digitales",
+        "item1": "Inteligencia artificial",
+        "item2": "Transformación digital",
+        "item3": "Desarrollo de aplicaciones"
+      },
+      "transformation": {
+        "title": "Transformación Organizacional",
+        "item1": "Gestión del cambio",
+        "item2": "Estrategia de innovación",
+        "item3": "Desarrollo de ecosistemas"
+      }
+    },
+    "approach": {
+      "title": "Nuestro enfoque",
+      "subtitle": "Una metodología probada para transformar ideas en logros concretos",
+      "step1": {
+        "title": "Análisis",
+        "description": "Comprensión profunda de los desafíos, necesidades y contexto organizacional"
+      },
+      "step2": {
+        "title": "Estrategia",
+        "description": "Elaboración de una hoja de ruta alineada con los objetivos y capacidades"
+      },
+      "step3": {
+        "title": "Implementación",
+        "description": "Acompañamiento en la ejecución y gestión de proyectos de innovación"
+      },
+      "step4": {
+        "title": "Sostenibilidad",
+        "description": "Transferencia de conocimientos y desarrollo de capacidades internas"
+      }
+    },
+    "cta": {
+      "title": "¿Listo para innovar juntos?",
+      "description": "Descubra cómo podemos acompañarle en sus proyectos de innovación",
+      "button": "Explore nuestros servicios"
+    }
+  },
   "settings": {
     "title": "Configuración de apariencia",
     "subtitle": "Personaliza la apariencia del sitio según tus preferencias",
