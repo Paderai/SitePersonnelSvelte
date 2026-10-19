@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Architecture du Site Web CV-Svelte</title>
+    <style>
+        /* Styles pour l'écran et l'impression */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: #f9fafb;
+        }
+
+        h1 {
+            color: #1e40af;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 4px solid #3b82f6;
+            padding-bottom: 0.5rem;
+        }
+
+        h2 {
+            color: #1e40af;
+            font-size: 1.8rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #93c5fd;
+            padding-bottom: 0.3rem;
+        }
+
+        h3 {
+            color: #2563eb;
+            font-size: 1.4rem;
+            margin-top: 2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        h4 {
+            color: #3b82f6;
+            font-size: 1.1rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        ul, ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        code {
+            background: #e5e7eb;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+
+        pre {
+            background: #1f2937;
+            color: #f3f4f6;
+            padding: 1rem;
+            border-radius: 6px;
+            overflow-x: auto;
+            margin-bottom: 1rem;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+
+        pre code {
+            background: transparent;
+            padding: 0;
+            color: inherit;
+        }
+
+        .info-box {
+            background: #dbeafe;
+            border-left: 4px solid #3b82f6;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .warning-box {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .success-box {
+            background: #d1fae5;
+            border-left: 4px solid #10b981;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .architecture-tree {
+            background: #f3f4f6;
+            padding: 1rem;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            white-space: pre;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        th, td {
+            border: 1px solid #d1d5db;
+            padding: 0.75rem;
+            text-align: left;
+        }
+
+        th {
+            background: #3b82f6;
+            color: white;
+            font-weight: 600;
+        }
+
+        tr:nth-child(even) {
+            background: #f9fafb;
+        }
+
+        .toc {
+            background: #f3f4f6;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+
+        .toc h2 {
+            margin-top: 0;
+            border-bottom: none;
+        }
+
+        .toc ul {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .toc li {
+            margin-bottom: 0.3rem;
+        }
+
+        .toc a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-right: 0.5rem;
+        }
+
+        .badge-primary {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .badge-success {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .badge-warning {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        /* Styles d'impression */
+        @media print {
+            body {
+                background: white;
+                padding: 1cm;
+                max-width: none;
+            }
+
+            h1 {
+                page-break-after: avoid;
+            }
+
+            h2, h3, h4 {
+                page-break-after: avoid;
+                page-break-inside: avoid;
+            }
+
+            pre, .architecture-tree, .info-box, .warning-box, .success-box {
+                page-break-inside: avoid;
+            }
+
+            .toc {
+                page-break-after: always;
+            }
+
+            a {
+                color: #2563eb;
+                text-decoration: none;
+            }
+
+            pre {
+                border: 1px solid #d1d5db;
+            }
+        }
+
+        @page {
+            margin: 2cm;
+        }
+    </style>
+</head>
+<body>
+    <h1>Architecture du Site Web CV-Svelte</h1>
+
+    <div class="toc">
+        <h2>Table des matières</h2>
+        <ul>
+            <li><a href="#vue-ensemble">1. Vue d'ensemble</a></li>
+            <li><a href="#configuration">2. Configuration de base</a></li>
+            <li><a href="#routing">3. Système de routing</a></li>
+            <li><a href="#themes">4. Système de thèmes et personnalisation</a></li>
+            <li><a href="#i18n">5. Internationalisation</a></li>
+            <li><a href="#donnees">6. Gestion des données</a></li>
+            <li><a href="#pages">7. Pages principales</a></li>
+            <li><a href="#composants">8. Composants réutilisables</a></li>
+            <li><a href="#patterns">9. Patterns Svelte 5</a></li>
+            <li><a href="#styling">10. Styling et design system</a></li>
+            <li><a href="#build">11. Build et déploiement</a></li>
+            <li><a href="#performance">12. Performance et optimisations</a></li>
+            <li><a href="#maintenance">13. Maintenance et évolution</a></li>
+            <li><a href="#bonnes-pratiques">14. Bonnes pratiques</a></li>
+            <li><a href="#diagrammes">15. Diagrammes d'architecture</a></li>
+        </ul>
+    </div>
+
+    <section id="vue-ensemble">
+        <h2>1. Vue d'ensemble</h2>
+        <p>Ce site web est un portfolio/CV interactif développé avec <strong>SvelteKit 5</strong>, configuré comme un site statique déployable sur cPanel. Il présente les compétences, réalisations et projets professionnels de manière interactive et multilingue.</p>
+
+        <h3>Technologies principales</h3>
+        <ul>
+            <li><span class="badge badge-primary">Framework</span> SvelteKit 5 avec Svelte 5 (runes: $state, $derived, $effect)</li>
+            <li><span class="badge badge-primary">Langage</span> TypeScript</li>
+            <li><span class="badge badge-primary">Styling</span> Tailwind CSS v4 (via plugin Vite)</li>
+            <li><span class="badge badge-primary">i18n</span> svelte-i18n (FR/EN/ES)</li>
+            <li><span class="badge badge-primary">Build</span> Vite</li>
+            <li><span class="badge badge-primary">Déploiement</span> Adapter static (@sveltejs/adapter-static)</li>
+        </ul>
+
+        <h3>Architecture générale</h3>
+        <div class="architecture-tree">CV-Svelte/
+├── src/
+│   ├── routes/              # Pages (routing basé sur fichiers)
+│   │   ├── +layout.svelte   # Layout global
+│   │   ├── +page.svelte     # Page d'accueil
+│   │   ├── profondeur/      # Page profondeur technique
+│   │   ├── realisations/    # Page réalisations
+│   │   ├── incubateur/      # Page incubateur numérique
+│   │   └── settings/        # Page paramètres
+│   ├── lib/
+│   │   ├── components/      # Composants réutilisables
+│   │   ├── data/           # Données et configuration
+│   │   └── i18n/           # Traductions
+│   └── app.css             # Styles globaux Tailwind
+├── static/                 # Assets statiques
+├── svelte.config.js        # Configuration SvelteKit
+├── vite.config.ts          # Configuration Vite
+└── tailwind.config.js      # Configuration Tailwind</div>
+    </section>
+
+    <section id="configuration">
+        <h2>2. Configuration de base</h2>
+
+        <h3>svelte.config.js - Configuration SvelteKit</h3>
+        <pre><code>import adapter from '@sveltejs/adapter-static';
+
+export default {
+  kit: {
+    adapter: adapter({
+      fallback: 'index.html',  // SPA routing
+      pages: 'build',
+      assets: 'build',
+      precompress: false
+    }),
+    paths: {
+      base: '',
+      assets: ''
+    },
+    prerender: {
+      entries: ['*']  // Pré-générer toutes les routes
+    }
+  }
+};</code></pre>
+
+        <div class="info-box">
+            <strong>Pourquoi cette configuration ?</strong>
+            <ul>
+                <li><code>adapter-static</code> génère un site statique déployable sur n'importe quel hébergeur</li>
+                <li><code>fallback: 'index.html'</code> permet le routing côté client (SPA)</li>
+                <li><code>prerender: ['*']</code> pré-génère toutes les pages pour de meilleures performances</li>
+            </ul>
+        </div>
+
+        <h3>vite.config.ts - Configuration Vite et Tailwind</h3>
+        <pre><code>import { sveltekit } from '@sveltejs/kit/vite';
+import tailwindcss from '@tailwindcss/vite';
+
+export default {
+  plugins: [
+    sveltekit(),
+    tailwindcss()  // Tailwind CSS v4 via plugin
+  ]
+};</code></pre>
+    </section>
+
+    <section id="routing">
+        <h2>3. Système de routing</h2>
+        <p>SvelteKit utilise le <strong>routing basé sur fichiers</strong> dans le dossier <code>src/routes/</code>.</p>
+
+        <h3>Structure des routes</h3>
+        <div class="architecture-tree">src/routes/
+├── +layout.svelte           # Layout appliqué à toutes les pages
+├── +page.svelte             # Page d'accueil (/)
+├── profondeur/
+│   └── +page.svelte         # /profondeur
+├── realisations/
+│   └── +page.svelte         # /realisations
+├── incubateur/
+│   └── +page.svelte         # /incubateur
+└── settings/
+    └── +page.svelte         # /settings</div>
+
+        <h3>+layout.svelte - Layout global</h3>
+        <p><strong>Responsabilités:</strong></p>
+        <ul>
+            <li>Charge et configure svelte-i18n</li>
+            <li>Importe les styles globaux (app.css)</li>
+            <li>Fournit la structure HTML de base</li>
+            <li>Gère le thème (clair/sombre) via localStorage</li>
+            <li>Inclut les composants globaux (Header, Footer, Navigation)</li>
+        </ul>
+
+        <pre><code>&lt;script lang="ts"&gt;
+  import { register, init, locale } from 'svelte-i18n';
+  import '../app.css';
+
+  // Configuration i18n
+  register('fr', () =&gt; import('$lib/i18n/locales/fr.json'));
+  register('en', () =&gt; import('$lib/i18n/locales/en.json'));
+  register('es', () =&gt; import('$lib/i18n/locales/es.json'));
+
+  init({
+    fallbackLocale: 'fr',
+    initialLocale: 'fr'
+  });
+&lt;/script&gt;
+
+&lt;slot /&gt;  &lt;!-- Contenu de chaque page --&gt;</code></pre>
+    </section>
+
+    <section id="themes">
+        <h2>4. Système de thèmes et personnalisation</h2>
+
+        <h3>app.css - Variables CSS et thèmes</h3>
+        <p>Le système de thèmes utilise des <strong>CSS custom properties</strong> (variables CSS) pour gérer les couleurs en mode clair et sombre.</p>
+
+        <pre><code>:root {
+  /* Couleurs de base */
+  --color-primary: 59 130 246;      /* Bleu */
+  --color-accent: 251 191 36;       /* Jaune */
+
+  /* Variables intermédiaires pour les fonds */
+  --light-bg-primary: 248 250 252;
+  --light-bg-secondary: 241 245 249;
+  --dark-bg-primary: 15 23 42;
+  --dark-bg-secondary: 30 41 59;
+}
+
+/* Mode clair */
+:root[data-theme="light"] {
+  --bg-primary: var(--light-bg-primary);
+  --bg-secondary: var(--light-bg-secondary);
+  --text-primary: 15 23 42;
+}
+
+/* Mode sombre */
+:root[data-theme="dark"] {
+  --bg-primary: var(--dark-bg-primary);
+  --bg-secondary: var(--dark-bg-secondary);
+  --text-primary: 248 250 252;
+}</code></pre>
+
+        <h3>Page Settings - Personnalisation</h3>
+        <p>La page <code>/settings</code> permet de personnaliser:</p>
+        <ul>
+            <li>Couleur primaire</li>
+            <li>Couleur d'accent</li>
+            <li>Police de caractères</li>
+            <li>Taille de police</li>
+            <li>Espacement</li>
+            <li>Couleurs de fond (mode clair et sombre)</li>
+        </ul>
+
+        <div class="info-box">
+            <strong>Persistance:</strong> Les paramètres sont sauvegardés dans <code>localStorage</code> et appliqués dynamiquement via JavaScript.
+        </div>
+    </section>
+
+    <section id="i18n">
+        <h2>5. Internationalisation (i18n)</h2>
+
+        <h3>Structure des traductions</h3>
+        <div class="architecture-tree">src/lib/i18n/locales/
+├── fr.json    # Français (langue par défaut)
+├── en.json    # Anglais
+└── es.json    # Espagnol</div>
+
+        <h3>Format des fichiers de traduction</h3>
+        <pre><code>{
+  "nav": {
+    "home": "Accueil",
+    "achievements": "Réalisations",
+    "depth": "Profondeur technique"
+  },
+  "incubator": {
+    "title": "Incubateur Numérique",
+    "subtitle": "Mon laboratoire d'innovation"
+  }
+}</code></pre>
+
+        <h3>Utilisation dans les composants</h3>
+        <pre><code>&lt;script lang="ts"&gt;
+  import { t, locale } from 'svelte-i18n';
+&lt;/script&gt;
+
+&lt;h1&gt;{$t('nav.home')}&lt;/h1&gt;
+&lt;button onclick={() =&gt; $locale.set('en')}&gt;English&lt;/button&gt;</code></pre>
+    </section>
+
+    <section id="donnees">
+        <h2>6. Gestion des données</h2>
+        <p>Les données sont centralisées dans <code>src/lib/data/</code> pour faciliter les mises à jour.</p>
+
+        <h3>technical-depth-data.ts - Données de profondeur technique</h3>
+        <pre><code>export interface Technology {
+  name: string;
+  category: string;
+  level: number;  // 0-100%
+  description?: string;
+}
+
+export const technologies: Technology[] = [
+  { name: 'Python', category: 'Programmation', level: 85 },
+  { name: 'Power BI', category: 'Bureautique', level: 90 },
+  // ... 60+ technologies
+];
+
+export const zones = [
+  {
+    name: 'Zone Néophyte',
+    range: '0-30%',
+    color: 'rgb(239 68 68)',
+    start: 0,
+    end: 30
+  },
+  // ... 3 zones
+];</code></pre>
+
+        <h3>projects-data.ts - Données des réalisations</h3>
+        <pre><code>export interface Project {
+  id: string;
+  title: string;
+  category: string;
+  year: string;
+  client?: string;
+  description: string;
+  achievements?: string[];
+  technologies?: string[];
+  status: 'completed' | 'in-progress' | 'planned';
+}</code></pre>
+    </section>
+
+    <section id="pages">
+        <h2>7. Pages principales</h2>
+
+        <h3>Page d'accueil (/)</h3>
+        <p><strong>Sections:</strong></p>
+        <ul>
+            <li>Hero section avec titre et CTA</li>
+            <li>Présentation</li>
+            <li>Compétences clés</li>
+            <li>Statistiques</li>
+        </ul>
+
+        <h3>Page Profondeur Technique (/profondeur)</h3>
+        <p><strong>Concept:</strong> Visualisation de la maîtrise des technologies via une courbe en S basée sur la fonction logistique.</p>
+
+        <h4>1. Courbe en S mathématique</h4>
+        <pre><code>function calculateSCurveY(x: number): number {
+  const k = 0.08;      // Pente
+  const x0 = 50;       // Point médian
+  return 100 / (1 + Math.exp(-k * (x - x0)));
+}</code></pre>
+
+        <h4>2. Graphique SVG interactif</h4>
+        <ul>
+            <li>Points colorés par catégorie</li>
+            <li>Zones colorées (Néophyte/Apprentissage/Expert)</li>
+            <li>Tooltips au survol</li>
+            <li>Grille de référence</li>
+        </ul>
+
+        <h4>3. Système de zoom et pan</h4>
+        <pre><code>let zoomLevel = $state(1);
+let panX = $state(0);
+let panY = $state(0);
+
+function zoomIn() {
+  zoomLevel = Math.min(zoomLevel * 1.3, 4);
+}
+
+function handleMouseDown(e: MouseEvent) {
+  if (zoomLevel &gt; 1) {
+    isDragging = true;
+    // ... logique de drag
+  }
+}</code></pre>
+
+        <h4>4. Codes couleur par catégorie</h4>
+        <table>
+            <thead>
+                <tr>
+                    <th>Catégorie</th>
+                    <th>Couleur</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Gestion</td><td>Violet (rgb(147, 51, 234))</td></tr>
+                <tr><td>Domaines</td><td>Bleu (rgb(59, 130, 246))</td></tr>
+                <tr><td>Bureautique</td><td>Vert émeraude (rgb(16, 185, 129))</td></tr>
+                <tr><td>Programmation</td><td>Orange (rgb(249, 115, 22))</td></tr>
+                <tr><td>IA</td><td>Rose (rgb(236, 72, 153))</td></tr>
+                <tr><td>Modélisation</td><td>Cyan (rgb(14, 165, 233))</td></tr>
+                <tr><td>Contenu</td><td>Violet clair (rgb(139, 92, 246))</td></tr>
+                <tr><td>Infrastructure</td><td>Vert (rgb(34, 197, 94))</td></tr>
+                <tr><td>Hardware</td><td>Jaune (rgb(234, 179, 8))</td></tr>
+            </tbody>
+        </table>
+
+        <div class="success-box">
+            <strong>Fonctionnalités:</strong>
+            <ul>
+                <li>✅ Graphique SVG interactif avec courbe en S</li>
+                <li>✅ Zoom (+, -, reset) jusqu'à 4x</li>
+                <li>✅ Pan (cliquer-glisser) quand zoomé</li>
+                <li>✅ Filtrage par catégorie</li>
+                <li>✅ 9 codes couleur par catégorie</li>
+                <li>✅ Légende interactive</li>
+                <li>✅ Tooltips au survol</li>
+                <li>✅ Liste synchronisée avec barres de progression</li>
+            </ul>
+        </div>
+
+        <h3>Page Réalisations (/realisations)</h3>
+        <p><strong>Système de filtrage:</strong></p>
+        <ul>
+            <li>Par catégorie (Innovation, Digital, etc.)</li>
+            <li>Par année</li>
+            <li>Filtres combinables</li>
+        </ul>
+
+        <h3>Page Incubateur Numérique (/incubateur)</h3>
+        <p><strong>Structure en accordéon avec 6 sections:</strong></p>
+        <ol>
+            <li>La genèse - Origine du concept</li>
+            <li>L'objectif - Vision et mission</li>
+            <li>2025 - État actuel</li>
+            <li>Équipements - Matériel disponible</li>
+            <li>Logiciels - Applications (6 catégories)</li>
+            <li>La suite - Projets futurs</li>
+        </ol>
+    </section>
+
+    <section id="patterns">
+        <h2>9. Patterns Svelte 5 utilisés</h2>
+
+        <h3>Runes - Nouvelle API de réactivité</h3>
+
+        <h4>$state - État réactif local</h4>
+        <pre><code>let count = $state(0);
+let user = $state({ name: 'Jean', age: 30 });</code></pre>
+
+        <h4>$derived - Valeurs dérivées</h4>
+        <pre><code>let count = $state(0);
+let doubled = $derived(count * 2);
+
+// Version complexe
+const filteredList = $derived.by(() =&gt; {
+  return items.filter(item =&gt; item.active);
+});</code></pre>
+
+        <h4>$effect - Effets secondaires</h4>
+        <pre><code>$effect(() =&gt; {
+  console.log(`Count is now: ${count}`);
+  // Cleanup automatique
+});</code></pre>
+
+        <h4>$props - Props de composant</h4>
+        <pre><code>interface Props {
+  title: string;
+  count?: number;
+}
+
+let { title, count = 0 }: Props = $props();</code></pre>
+    </section>
+
+    <section id="styling">
+        <h2>10. Styling et design system</h2>
+
+        <h3>Variables CSS personnalisées</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Variable</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Couleurs</td><td>--color-primary</td><td>Couleur principale (bleu)</td></tr>
+                <tr><td>Couleurs</td><td>--color-accent</td><td>Couleur d'accent (jaune)</td></tr>
+                <tr><td>Fonds</td><td>--bg-primary/secondary/tertiary</td><td>Niveaux de fond</td></tr>
+                <tr><td>Texte</td><td>--text-primary/secondary/muted</td><td>Niveaux de texte</td></tr>
+                <tr><td>Bordures</td><td>--border-color</td><td>Couleur des bordures</td></tr>
+            </tbody>
+        </table>
+
+        <h3>Breakpoints responsive</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Breakpoint</th>
+                    <th>Taille</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>sm</td><td>640px</td></tr>
+                <tr><td>md</td><td>768px</td></tr>
+                <tr><td>lg</td><td>1024px</td></tr>
+                <tr><td>xl</td><td>1280px</td></tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section id="build">
+        <h2>11. Build et déploiement</h2>
+
+        <h3>Commandes de build</h3>
+        <pre><code># Développement
+npm run dev
+
+# Build de production
+npm run build
+
+# Prévisualiser le build
+npm run preview
+
+# Vérification TypeScript
+npm run check
+
+# Linting et formatting
+npm run lint
+npm run format</code></pre>
+
+        <h3>Process de build</h3>
+        <ol>
+            <li><strong>Vite compile</strong> les fichiers TypeScript et Svelte</li>
+            <li><strong>Tailwind</strong> génère le CSS optimisé</li>
+            <li><strong>SvelteKit</strong> pré-génère toutes les routes statiques</li>
+            <li><strong>Output</strong> dans le dossier <code>build/</code></li>
+        </ol>
+
+        <h3>Déploiement sur cPanel</h3>
+        <ol>
+            <li>Build du projet: <code>npm run build</code></li>
+            <li>Upload du contenu du dossier <code>build/</code> vers <code>public_html/</code></li>
+            <li>Configuration <code>.htaccess</code> pour SPA routing (si nécessaire)</li>
+        </ol>
+    </section>
+
+    <section id="performance">
+        <h2>12. Performance et optimisations</h2>
+
+        <h3>Code splitting</h3>
+        <p>SvelteKit charge automatiquement:</p>
+        <ul>
+            <li>Les routes de manière lazy (chargement à la demande)</li>
+            <li>Les traductions par langue</li>
+            <li>Les composants de manière optimale</li>
+        </ul>
+
+        <h3>Pré-rendering</h3>
+        <p>Toutes les pages sont pré-générées en HTML statique:</p>
+        <ul>
+            <li>SEO optimal</li>
+            <li>Temps de chargement minimal</li>
+            <li>Fonctionne sans JavaScript</li>
+        </ul>
+    </section>
+
+    <section id="maintenance">
+        <h2>13. Maintenance et évolution</h2>
+
+        <h3>Ajouter une nouvelle technologie</h3>
+        <ol>
+            <li>Ouvrir <code>src/lib/data/technical-depth-data.ts</code></li>
+            <li>Ajouter l'entrée: <code>{ name: 'Rust', category: 'Programmation', level: 50 }</code></li>
+            <li>La technologie apparaît automatiquement sur la courbe et dans la liste</li>
+        </ol>
+
+        <h3>Ajouter un nouveau projet</h3>
+        <ol>
+            <li>Ouvrir <code>src/lib/data/projects-data.ts</code></li>
+            <li>Ajouter l'entrée avec tous les champs requis</li>
+            <li>Le projet apparaît automatiquement dans la page réalisations</li>
+        </ol>
+
+        <h3>Créer une nouvelle page</h3>
+        <ol>
+            <li>Créer <code>src/routes/nouvelle-page/+page.svelte</code></li>
+            <li>Ajouter le contenu de la page</li>
+            <li>La route <code>/nouvelle-page</code> est automatiquement disponible</li>
+        </ol>
+    </section>
+
+    <section id="bonnes-pratiques">
+        <h2>14. Bonnes pratiques</h2>
+
+        <h3>TypeScript</h3>
+        <ul>
+            <li>✅ Toujours typer les interfaces</li>
+            <li>✅ Utiliser $props() pour les composants</li>
+            <li>✅ Éviter <code>any</code>, préférer <code>unknown</code></li>
+        </ul>
+
+        <h3>Svelte</h3>
+        <ul>
+            <li>✅ Utiliser les runes Svelte 5 ($state, $derived, $effect)</li>
+            <li>✅ Éviter la mutation directe, préférer la réassignation</li>
+            <li>✅ Nommer les event handlers avec préfixe <code>handle</code></li>
+        </ul>
+
+        <h3>Accessibilité</h3>
+        <ul>
+            <li>✅ Utiliser les balises sémantiques (&lt;nav&gt;, &lt;main&gt;, &lt;article&gt;)</li>
+            <li>✅ Ajouter <code>aria-label</code> aux boutons sans texte</li>
+            <li>✅ Assurer le contraste des couleurs (WCAG AA minimum)</li>
+        </ul>
+    </section>
+
+    <section id="diagrammes">
+        <h2>15. Diagrammes d'architecture</h2>
+
+        <h3>Flux de données - Page Profondeur Technique</h3>
+        <div class="architecture-tree">technical-depth-data.ts
+        ↓
+    technologies[]
+        ↓
+  profondeur/+page.svelte
+        ↓
+  ┌─────────────────────┐
+  │  Filtrage catégorie │ → selectedCategory ($state)
+  └─────────────────────┘
+        ↓
+  filteredTechnologies ($derived)
+        ↓
+  ┌──────────────────────────────────┐
+  │  Graphique SVG                   │
+  │  - Courbe en S (logistique)      │
+  │  - Points (+ offset anti-overlap)│
+  │  - Zoom/Pan (transform)          │
+  │  - Couleurs par catégorie        │
+  └──────────────────────────────────┘
+        ↓
+  Tooltip (hoveredTech)</div>
+
+        <h3>Flux de thème</h3>
+        <div class="architecture-tree">localStorage
+    ↓
+Settings Page
+    ↓
+applySettings()
+    ↓
+CSS Variables (--color-primary, --bg-primary, etc.)
+    ↓
+document.documentElement.style.setProperty()
+    ↓
+Tous les composants (via rgb(var(--color-primary)))</div>
+
+        <h3>Flux i18n</h3>
+        <div class="architecture-tree">i18n/locales/*.json
+        ↓
+    register()
+        ↓
+      init()
+        ↓
+   +layout.svelte
+        ↓
+    $locale store
+        ↓
+   $t('key') dans composants
+        ↓
+    Texte traduit</div>
+    </section>
+
+    <section>
+        <h2>Conclusion</h2>
+        <div class="success-box">
+            <p><strong>Cette architecture offre:</strong></p>
+            <ul>
+                <li>✅ <strong>Modularité</strong> - Composants réutilisables et données séparées</li>
+                <li>✅ <strong>Performance</strong> - Pré-rendering, code splitting, CSS optimisé</li>
+                <li>✅ <strong>Maintenabilité</strong> - TypeScript, structure claire, documentation</li>
+                <li>✅ <strong>Évolutivité</strong> - Facile d'ajouter pages, technologies, traductions</li>
+                <li>✅ <strong>UX moderne</strong> - Animations, thèmes, multilingue, interactivité</li>
+                <li>✅ <strong>SEO-friendly</strong> - HTML statique, métadonnées, accessibilité</li>
+            </ul>
+            <p>Le site est prêt pour la production et peut être facilement étendu avec de nouvelles fonctionnalités.</p>
+        </div>
+    </section>
+
+    <footer style="margin-top: 3rem; padding-top: 2rem; border-top: 2px solid #e5e7eb; color: #6b7280; font-size: 0.9rem;">
+        <p><strong>Version:</strong> 1.0</p>
+        <p><strong>Dernière mise à jour:</strong> 2025-01-13</p>
+        <p><strong>Document:</strong> Architecture CV-Svelte</p>
+    </footer>
+</body>
+</html>
