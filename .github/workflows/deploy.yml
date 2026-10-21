@@ -19,7 +19,16 @@ jobs:
           node-version: '24'
           cache: 'npm'
 
+      # Restaure node_modules tel quel si package-lock.json n'a pas changé
+      - name: Cache node_modules
+        id: deps-cache
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: node-modules-${{ runner.os }}-node24-${{ hashFiles('package-lock.json') }}
+
       - name: Install dependencies
+        if: steps.deps-cache.outputs.cache-hit != 'true'
         run: npm ci
 
       - name: Type check
@@ -46,10 +55,16 @@ jobs:
             export NVM_DIR="$HOME/.nvm"
             [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
             cd /var/www/francoisprovencher
+            PREVIOUS=$(git rev-parse HEAD)
             # Le VPS reflète exactement main : toute modification locale est écrasée
             git fetch origin main
             git reset --hard origin/main
-            # Installe les dépendances exactes du lockfile (sans le modifier)
-            npm ci
+            # Réinstalle les dépendances exactes du lockfile seulement s'il a changé
+            if [ ! -d node_modules ] || ! git diff --quiet "$PREVIOUS" HEAD -- package-lock.json; then
+              echo "package-lock.json modifié : npm ci"
+              npm ci
+            else
+              echo "Dépendances inchangées : npm ci sauté"
+            fi
             npm run build
             echo "Deployed $(git rev-parse --short HEAD) at $(date)"
