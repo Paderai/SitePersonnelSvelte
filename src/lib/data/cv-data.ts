@@ -712,6 +712,37 @@ export const cvData: CVData = {
 		},
 		{
 			category: {
+				fr: 'Compétences en gestion',
+				en: 'Management Skills',
+				es: 'Competencias de gestión'
+			},
+			items: [
+				{
+					fr: "Leadership d'équipe (jusqu'à 400 personnes)",
+					en: 'Team leadership (up to 400 people)',
+					es: 'Liderazgo de equipos (hasta 400 personas)'
+				},
+				{
+					fr: 'Gestion de budgets (>50 M$)',
+					en: 'Budget management (>$50M)',
+					es: 'Gestión de presupuestos (>50 M$)'
+				},
+				{
+					fr: 'Développement des affaires',
+					en: 'Business development',
+					es: 'Desarrollo de negocios'
+				},
+				{ fr: 'Relations clients', en: 'Client relations', es: 'Relaciones con clientes' },
+				{ fr: 'Gestion de portfolio', en: 'Portfolio management', es: 'Gestión de carteras' },
+				{
+					fr: 'Planification stratégique',
+					en: 'Strategic planning',
+					es: 'Planificación estratégica'
+				}
+			]
+		},
+		{
+			category: {
 				fr: 'Technologies et outils',
 				en: 'Technologies and Tools',
 				es: 'Tecnologías y herramientas'
@@ -803,37 +834,6 @@ export const cvData: CVData = {
 				{ fr: 'Impression 3D', en: '3D printing', es: 'Impresión 3D' },
 				'Arduino',
 				'Raspberry PI'
-			]
-		},
-		{
-			category: {
-				fr: 'Compétences en gestion',
-				en: 'Management Skills',
-				es: 'Competencias de gestión'
-			},
-			items: [
-				{
-					fr: "Leadership d'équipe (jusqu'à 400 personnes)",
-					en: 'Team leadership (up to 400 people)',
-					es: 'Liderazgo de equipos (hasta 400 personas)'
-				},
-				{
-					fr: 'Gestion de budgets (>50 M$)',
-					en: 'Budget management (>$50M)',
-					es: 'Gestión de presupuestos (>50 M$)'
-				},
-				{
-					fr: 'Développement des affaires',
-					en: 'Business development',
-					es: 'Desarrollo de negocios'
-				},
-				{ fr: 'Relations clients', en: 'Client relations', es: 'Relaciones con clientes' },
-				{ fr: 'Gestion de portfolio', en: 'Portfolio management', es: 'Gestión de carteras' },
-				{
-					fr: 'Planification stratégique',
-					en: 'Strategic planning',
-					es: 'Planificación estratégica'
-				}
 			]
 		}
 	],

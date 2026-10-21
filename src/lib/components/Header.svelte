@@ -9,13 +9,14 @@
 	// Navigation items
 	const navItems = [
 		{ href: '/', label: 'nav.home' },
-		{ href: '/bio', label: 'nav.bio' },
+		
 		{ href: '/francois_provencher', label: 'nav.cv' },
 		{ href: '/realisations', label: 'nav.achievements' },
+		// { href: '/bio', label: 'nav.bio' },
 		// Temporairement masqués du menu (pages conservées, à compléter plus tard)
 		// { href: '/innovation', label: 'nav.innovation' },
 		// { href: '/profondeur', label: 'nav.depth' },
-		{ href: '/incubateur', label: 'nav.incubator' },
+		// { href: '/incubateur', label: 'nav.incubator' },
 		// { href: '/blog', label: 'nav.blog' },
 		// Masqué pour les visiteurs (accessible manuellement via /settings)
 		// { href: '/settings', label: 'nav.settings' }
