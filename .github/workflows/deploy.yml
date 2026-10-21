@@ -31,6 +31,8 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: test
+    # Ne déployer que sur un push vers main (pas depuis une PR)
+    if: github.event_name == 'push'
     steps:
       - name: Deploy to VPS
         uses: appleboy/ssh-action@v1.2.0
@@ -44,6 +46,10 @@ jobs:
             export NVM_DIR="$HOME/.nvm"
             [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
             cd /var/www/francoisprovencher
-            git pull origin main
+            # Le VPS reflète exactement main : toute modification locale est écrasée
+            git fetch origin main
+            git reset --hard origin/main
+            # Installe les dépendances exactes du lockfile (sans le modifier)
+            npm ci
             npm run build
             echo "Deployed $(git rev-parse --short HEAD) at $(date)"
