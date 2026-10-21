@@ -55,7 +55,7 @@
     "contact": "Contact"
   },
   "achievements": {
-    "subtitle": "My main professional achievements",
+    "subtitle": "Key achievements (2021-2024) (in progress)",
     "filterCategory": "Category:",
     "filterYear": "Year:",
     "filterAll": "All",
@@ -76,7 +76,7 @@
   },
   "landing": {
     "tagline": "Personal website of François Provencher, Eng., M.Sc.A.",
-    "description": "I am a curious and passionate innovator, human-centered and data-driven. I created this site to share my passion for science, technology and innovation. You will find my professional background, my achievements, as well as articles and reflections on innovation and technology.",
+    "description": "Curious and passionate innovator, human-centered and data-driven.",
     "discover": "My Resume",
     "learnMore": "Learn more",
     "innovation": "Innovation",
@@ -231,7 +231,7 @@
       "electronics": "Electronics project equipment (soldering iron, power supply, anti-static mat, electronic component kits)"
     },
     "software": {
-      "title": "Main Software Used in 2025",
+      "title": "Main Software Used in 2026",
       "office": {
         "title": "Office Suite",
         "microsoft365": "Complete suite (Word, Excel, PowerPoint, Outlook, OneDrive)",
