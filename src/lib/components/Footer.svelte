@@ -171,6 +171,11 @@
 				{$t('footer.aiNoticeText')}
 			</p>
 		</div>
+
+		<!-- Version et build -->
+		<div class="app-version">
+			v{__APP_VERSION__} <span class="build">· {__APP_BUILD__}</span>
+		</div>
 	</div>
 </footer>
 
@@ -219,6 +224,18 @@
 		font-size: 0.6875rem;
 		line-height: 1.4;
 		opacity: 0.7;
+	}
+
+	.app-version {
+		margin-top: 0.75rem;
+		text-align: right;
+		color: rgb(var(--text-muted));
+		font-size: 0.6875rem;
+		font-family: monospace;
+	}
+
+	.app-version .build {
+		opacity: 0.6;
 	}
 
 	.footer-title {
