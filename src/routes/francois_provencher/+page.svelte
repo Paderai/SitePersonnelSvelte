@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { t } from 'svelte-i18n';
 	import { cvData } from '$lib/data/cv-data';
+	import { tl } from '$lib/i18n';
 </script>
 
 <div class="cv-page">
@@ -11,7 +12,7 @@
 				<img src="/photo-profile.jpg" alt={cvData.profile.name} class="cv-avatar" />
 				<div class="header-info">
 					<h1 class="cv-title">{cvData.profile.name}</h1>
-					<p class="cv-subtitle">{cvData.profile.title}</p>
+					<p class="cv-subtitle">{$tl(cvData.profile.title)}</p>
 					<div class="contact-links">
 						<div class="contact-item">
 							<svg
@@ -26,7 +27,7 @@
 								<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
 								<circle cx="12" cy="10" r="3"></circle>
 							</svg>
-							<span>{cvData.profile.location}</span>
+							<span>{$tl(cvData.profile.location)}</span>
 						</div>
 						<div class="contact-item">
 							<svg
@@ -77,30 +78,30 @@
 			<!-- Profil -->
 			<section class="cv-section">
 				<h2 class="section-title">{$t('bioPage.about')}</h2>
-				<p class="profile-summary">{cvData.profile.summary}</p>
+				<p class="profile-summary">{$tl(cvData.profile.summary)}</p>
 			</section>
 
 			<!-- Expérience professionnelle -->
 			<section class="cv-section">
-				<h2 class="section-title">Expérience professionnelle</h2>
+				<h2 class="section-title">{$t('cvPage.experience')}</h2>
 				{#each cvData.experiences as exp}
 					<div class="experience-item">
 						<div class="experience-header">
-							<h3 class="experience-title">{exp.title}</h3>
-							<span class="experience-period">{exp.period}</span>
+							<h3 class="experience-title">{$tl(exp.title)}</h3>
+							<span class="experience-period">{$tl(exp.period)}</span>
 						</div>
-						<p class="experience-company">{exp.company} - {exp.location}</p>
+						<p class="experience-company">{exp.company} - {$tl(exp.location)}</p>
 						<ul class="experience-description">
 							{#each exp.description as desc}
-								<li>{desc}</li>
+								<li>{$tl(desc)}</li>
 							{/each}
 						</ul>
 						{#if exp.achievements && exp.achievements.length > 0}
 							<div class="experience-achievements">
-								<strong>Réalisations clés :</strong>
+								<strong>{$t('cvPage.keyAchievements')}</strong>
 								<ul>
 									{#each exp.achievements as achievement}
-										<li>{achievement}</li>
+										<li>{$tl(achievement)}</li>
 									{/each}
 								</ul>
 							</div>
@@ -108,7 +109,7 @@
 						{#if exp.technologies && exp.technologies.length > 0}
 							<div class="experience-tech">
 								{#each exp.technologies as tech}
-									<span class="tech-badge">{tech}</span>
+									<span class="tech-badge">{$tl(tech)}</span>
 								{/each}
 							</div>
 						{/if}
@@ -122,10 +123,10 @@
 				<div class="skills-grid">
 					{#each cvData.skills as skillCategory}
 						<div class="skill-category">
-							<h3 class="skill-category-title">{skillCategory.category}</h3>
+							<h3 class="skill-category-title">{$tl(skillCategory.category)}</h3>
 							<ul class="skill-list">
 								{#each skillCategory.items as skill}
-									<li>{skill}</li>
+									<li>{$tl(skill)}</li>
 								{/each}
 							</ul>
 						</div>
@@ -138,11 +139,11 @@
 				<h2 class="section-title">{$t('bioPage.education')}</h2>
 				{#each cvData.education as edu}
 					<div class="education-item">
-						<h3 class="education-degree">{edu.degree}</h3>
-						<p class="education-institution">{edu.institution} - {edu.location}</p>
+						<h3 class="education-degree">{$tl(edu.degree)}</h3>
+						<p class="education-institution">{edu.institution} - {$tl(edu.location)}</p>
 						<p class="education-period">{edu.period}</p>
 						{#if edu.description}
-							<p class="education-description">{edu.description}</p>
+							<p class="education-description">{$tl(edu.description)}</p>
 						{/if}
 					</div>
 				{/each}
@@ -154,8 +155,8 @@
 				<div class="languages-grid">
 					{#each cvData.languages as lang}
 						<div class="language-item">
-							<span class="language-name">{lang.language}</span>
-							<span class="language-level">{lang.level}</span>
+							<span class="language-name">{$tl(lang.language)}</span>
+							<span class="language-level">{$tl(lang.level)}</span>
 						</div>
 					{/each}
 				</div>

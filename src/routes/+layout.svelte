@@ -4,28 +4,22 @@
 	import Header from '$lib/components/Header.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import { onMount } from 'svelte';
-	import { locale } from 'svelte-i18n';
+	import { t } from 'svelte-i18n';
 
 	let { children } = $props();
 
-	// Initialiser le thème et la langue au chargement
+	// Initialiser le thème au chargement (la langue est restaurée dans $lib/i18n)
 	onMount(() => {
 		// Restaurer le thème sauvegardé
 		const savedTheme = localStorage.getItem('theme') || 'light';
 		document.documentElement.setAttribute('data-theme', savedTheme);
-
-		// Restaurer la langue sauvegardée
-		const savedLocale = localStorage.getItem('locale');
-		if (savedLocale) {
-			locale.set(savedLocale);
-		}
 	});
 </script>
 
 <svelte:head>
 	<link rel="icon" href={favicon} />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<meta name="description" content="François Provencher - Ingénieur et consultant en innovation" />
+	<meta name="description" content={$t('meta.description')} />
 </svelte:head>
 
 <div class="app-layout">

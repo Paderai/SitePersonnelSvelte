@@ -29,7 +29,9 @@
   "theme": {
     "light": "Modo claro",
     "dark": "Modo oscuro",
-    "toggle": "Cambiar tema"
+    "toggle": "Cambiar tema",
+    "enableDark": "Activar el modo oscuro",
+    "enableLight": "Activar el modo claro"
   },
   "language": {
     "select": "Seleccionar idioma",
@@ -54,7 +56,6 @@
   },
   "achievements": {
     "subtitle": "Mis principales logros profesionales",
-    "translationPending": "Traducciones próximamente",
     "filterCategory": "Categoría:",
     "filterYear": "Año:",
     "filterAll": "Todas",
@@ -179,6 +180,29 @@
     "actions": {
       "save": "Guardar cambios",
       "reset": "Restablecer"
+    },
+    "options": {
+      "systemFont": "System UI (Predeterminada)",
+      "small": "Pequeño (14px)",
+      "normalSize": "Normal (16px)",
+      "large": "Grande (18px)",
+      "xlarge": "Muy grande (20px)",
+      "compact": "Compacto",
+      "normal": "Normal",
+      "comfortable": "Cómodo",
+      "spacious": "Espacioso"
+    },
+    "colorNames": {
+      "blueDefault": "Azul (predeterminado)",
+      "goldDefault": "Amarillo dorado (predeterminado)",
+      "green": "Verde",
+      "red": "Rojo",
+      "purple": "Violeta",
+      "pink": "Rosa",
+      "orange": "Naranja",
+      "yellow": "Amarillo",
+      "skyBlue": "Azul cielo",
+      "turquoise": "Turquesa"
     }
   },
   "incubator": {
@@ -267,5 +291,28 @@
       "project5": "Creación de una nube personal soberana",
       "conclusion": "La incubadora digital personal es un proyecto en constante evolución. Continúo explorando nuevas tecnologías y desarrollando nuevos proyectos. Mi objetivo es seguir aprendiendo e innovando, compartiendo mis conocimientos y experiencias con otros entusiastas de la tecnología. Si está interesado en la innovación y las tecnologías digitales, no dude en contactarme. Estaré encantado de discutir mis proyectos y compartir mis ideas con usted."
     }
+  },
+  "meta": {
+    "description": "François Provencher - Ingeniero y consultor en innovación"
+  },
+  "cvPage": {
+    "experience": "Experiencia profesional",
+    "keyAchievements": "Logros clave:"
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Artículos y reflexiones sobre innovación y tecnología",
+    "admin": "Administración",
+    "searchPlaceholder": "Buscar un artículo...",
+    "category": "Categoría",
+    "allCategories": "Todas las categorías",
+    "tags": "Etiquetas",
+    "allTags": "Todas las etiquetas",
+    "activeFilters": "Filtros activos",
+    "clearFilters": "Borrar filtros",
+    "article": "artículo",
+    "articles": "artículos",
+    "readMore": "Leer más",
+    "noPosts": "No se encontraron artículos"
   }
 }

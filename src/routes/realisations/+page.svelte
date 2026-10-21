@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { t } from 'svelte-i18n';
 	import { projectsData, projectCategories, getAvailableYears } from '$lib/data/projects-data';
+	import { tl } from '$lib/i18n';
 
 	let selectedCategory = $state<string | null>(null);
 	let selectedYear = $state<string | null>(null);
@@ -28,7 +29,6 @@
 		<header class="page-header">
 			<h1 class="page-title">{$t('nav.achievements')}</h1>
 			<p class="page-subtitle">{$t('achievements.subtitle')}</p>
-			<p class="translation-notice">{$t('achievements.translationPending')}</p>
 		</header>
 
 		<!-- Filtres -->
@@ -96,18 +96,18 @@
 							{#if project.status === 'completed'}✓{:else if project.status === 'in-progress'}⏳{:else}📅{/if}
 						</span>
 					</div>
-					<h3 class="project-title">{project.title}</h3>
+					<h3 class="project-title">{$tl(project.title)}</h3>
 					{#if project.client}
-						<p class="project-client">{$t('achievements.client')} {project.client}</p>
+						<p class="project-client">{$t('achievements.client')} {$tl(project.client)}</p>
 					{/if}
-					<p class="project-description">{project.description}</p>
+					<p class="project-description">{$tl(project.description)}</p>
 
 					{#if project.achievements && project.achievements.length > 0}
 						<div class="project-achievements">
 							<strong>{$t('achievements.keyAchievements')}</strong>
 							<ul>
 								{#each project.achievements.slice(0, 2) as achievement}
-									<li>{achievement}</li>
+									<li>{$tl(achievement)}</li>
 								{/each}
 							</ul>
 						</div>
@@ -116,7 +116,7 @@
 					{#if project.technologies && project.technologies.length > 0}
 						<div class="project-tech">
 							{#each project.technologies as tech}
-								<span class="tech-tag">{tech}</span>
+								<span class="tech-tag">{$tl(tech)}</span>
 							{/each}
 						</div>
 					{/if}
@@ -161,13 +161,6 @@
 		margin: 0 0 0.5rem 0;
 		font-size: 1.25rem;
 		color: rgb(var(--text-secondary));
-	}
-
-	.translation-notice {
-		margin: 0;
-		font-size: 0.875rem;
-		color: rgb(var(--text-muted));
-		font-style: italic;
 	}
 
 	.projects-grid {

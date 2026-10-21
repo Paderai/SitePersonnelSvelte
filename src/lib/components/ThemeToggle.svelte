@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { t } from 'svelte-i18n';
 
 	let theme = $state<'light' | 'dark'>('light');
 
@@ -39,8 +40,8 @@
 <button
 	onclick={toggleTheme}
 	class="theme-toggle"
-	aria-label={theme === 'light' ? 'Activer le mode sombre' : 'Activer le mode clair'}
-	title={theme === 'light' ? 'Mode sombre' : 'Mode clair'}
+	aria-label={theme === 'light' ? $t('theme.enableDark') : $t('theme.enableLight')}
+	title={theme === 'light' ? $t('theme.dark') : $t('theme.light')}
 >
 	{#if theme === 'light'}
 		<!-- Icône Lune (mode sombre) -->

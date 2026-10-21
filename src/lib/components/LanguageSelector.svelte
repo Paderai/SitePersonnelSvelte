@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { locale } from 'svelte-i18n';
-	import { availableLocales } from '$lib/i18n';
+	import { locale, t } from 'svelte-i18n';
+	import { availableLocales, setLocale } from '$lib/i18n';
 
 	let isOpen = $state(false);
 	let currentLocale = $state('fr');
@@ -14,8 +14,7 @@
 	});
 
 	function changeLocale(newLocale: string) {
-		locale.set(newLocale);
-		localStorage.setItem('locale', newLocale);
+		setLocale(newLocale);
 		isOpen = false;
 	}
 
@@ -46,7 +45,7 @@
 	<button
 		onclick={toggleDropdown}
 		class="language-button"
-		aria-label="Sélectionner la langue"
+		aria-label={$t('language.select')}
 		aria-expanded={isOpen}
 	>
 		<span class="flag">

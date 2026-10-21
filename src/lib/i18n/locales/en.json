@@ -29,7 +29,9 @@
   "theme": {
     "light": "Light mode",
     "dark": "Dark mode",
-    "toggle": "Toggle theme"
+    "toggle": "Toggle theme",
+    "enableDark": "Enable dark mode",
+    "enableLight": "Enable light mode"
   },
   "language": {
     "select": "Select language",
@@ -54,7 +56,6 @@
   },
   "achievements": {
     "subtitle": "My main professional achievements",
-    "translationPending": "Translations coming soon",
     "filterCategory": "Category:",
     "filterYear": "Year:",
     "filterAll": "All",
@@ -179,6 +180,29 @@
     "actions": {
       "save": "Save changes",
       "reset": "Reset"
+    },
+    "options": {
+      "systemFont": "System UI (Default)",
+      "small": "Small (14px)",
+      "normalSize": "Normal (16px)",
+      "large": "Large (18px)",
+      "xlarge": "Extra large (20px)",
+      "compact": "Compact",
+      "normal": "Normal",
+      "comfortable": "Comfortable",
+      "spacious": "Spacious"
+    },
+    "colorNames": {
+      "blueDefault": "Blue (default)",
+      "goldDefault": "Golden yellow (default)",
+      "green": "Green",
+      "red": "Red",
+      "purple": "Purple",
+      "pink": "Pink",
+      "orange": "Orange",
+      "yellow": "Yellow",
+      "skyBlue": "Sky blue",
+      "turquoise": "Turquoise"
     }
   },
   "incubator": {
@@ -267,5 +291,28 @@
       "project5": "Creation of a sovereign personal cloud",
       "conclusion": "The personal digital incubator is a constantly evolving project. I continue to explore new technologies and develop new projects. My goal is to continue learning and innovating, while sharing my knowledge and experiences with other technology enthusiasts. If you are interested in innovation and digital technologies, feel free to contact me. I would be delighted to discuss my projects and share my ideas with you."
     }
+  },
+  "meta": {
+    "description": "François Provencher - Engineer and innovation consultant"
+  },
+  "cvPage": {
+    "experience": "Professional Experience",
+    "keyAchievements": "Key achievements:"
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Articles and thoughts on innovation and technology",
+    "admin": "Administration",
+    "searchPlaceholder": "Search articles...",
+    "category": "Category",
+    "allCategories": "All categories",
+    "tags": "Tags",
+    "allTags": "All tags",
+    "activeFilters": "Active filters",
+    "clearFilters": "Clear filters",
+    "article": "article",
+    "articles": "articles",
+    "readMore": "Read more",
+    "noPosts": "No articles found"
   }
 }

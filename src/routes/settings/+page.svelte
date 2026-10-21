@@ -41,8 +41,9 @@
 	let hasChanges = $state(false);
 
 	// Options disponibles
+	// Les libellés qui commencent par « settings. » sont des clés de traduction
 	const fontFamilies = [
-		{ value: 'system-ui', label: 'System UI (Défaut)' },
+		{ value: 'system-ui', label: 'settings.options.systemFont' },
 		{ value: 'Inter', label: 'Inter' },
 		{ value: 'Roboto', label: 'Roboto' },
 		{ value: 'Open Sans', label: 'Open Sans' },
@@ -54,38 +55,40 @@
 	];
 
 	const fontSizes = [
-		{ value: '14', label: 'Petit (14px)' },
-		{ value: '16', label: 'Normal (16px)' },
-		{ value: '18', label: 'Grand (18px)' },
-		{ value: '20', label: 'Très grand (20px)' }
+		{ value: '14', label: 'settings.options.small' },
+		{ value: '16', label: 'settings.options.normalSize' },
+		{ value: '18', label: 'settings.options.large' },
+		{ value: '20', label: 'settings.options.xlarge' }
 	];
 
 	const spacingOptions = [
-		{ value: '0.75', label: 'Compact' },
-		{ value: '1', label: 'Normal' },
-		{ value: '1.25', label: 'Confortable' },
-		{ value: '1.5', label: 'Spacieux' }
+		{ value: '0.75', label: 'settings.options.compact' },
+		{ value: '1', label: 'settings.options.normal' },
+		{ value: '1.25', label: 'settings.options.comfortable' },
+		{ value: '1.5', label: 'settings.options.spacious' }
 	];
 
 	// Couleurs prédéfinies
 	const presetColors = {
 		primary: [
-			{ value: '50 125 200', label: 'Bleu (défaut)', hex: '#327DC8' },
-			{ value: '34 197 94', label: 'Vert', hex: '#22C55E' },
-			{ value: '239 68 68', label: 'Rouge', hex: '#EF4444' },
-			{ value: '168 85 247', label: 'Violet', hex: '#A855F7' },
-			{ value: '236 72 153', label: 'Rose', hex: '#EC4899' },
-			{ value: '249 115 22', label: 'Orange', hex: '#F97316' }
+			{ value: '50 125 200', label: 'settings.colorNames.blueDefault', hex: '#327DC8' },
+			{ value: '34 197 94', label: 'settings.colorNames.green', hex: '#22C55E' },
+			{ value: '239 68 68', label: 'settings.colorNames.red', hex: '#EF4444' },
+			{ value: '168 85 247', label: 'settings.colorNames.purple', hex: '#A855F7' },
+			{ value: '236 72 153', label: 'settings.colorNames.pink', hex: '#EC4899' },
+			{ value: '249 115 22', label: 'settings.colorNames.orange', hex: '#F97316' }
 		],
 		accent: [
-			{ value: '255 200 87', label: 'Jaune doré (défaut)', hex: '#FFC857' },
-			{ value: '234 179 8', label: 'Jaune', hex: '#EAB308' },
-			{ value: '14 165 233', label: 'Bleu ciel', hex: '#0EA5E9' },
-			{ value: '20 184 166', label: 'Turquoise', hex: '#14B8A6' },
-			{ value: '251 146 60', label: 'Orange', hex: '#FB923C' },
-			{ value: '251 113 133', label: 'Rose', hex: '#FB7185' }
+			{ value: '255 200 87', label: 'settings.colorNames.goldDefault', hex: '#FFC857' },
+			{ value: '234 179 8', label: 'settings.colorNames.yellow', hex: '#EAB308' },
+			{ value: '14 165 233', label: 'settings.colorNames.skyBlue', hex: '#0EA5E9' },
+			{ value: '20 184 166', label: 'settings.colorNames.turquoise', hex: '#14B8A6' },
+			{ value: '251 146 60', label: 'settings.colorNames.orange', hex: '#FB923C' },
+			{ value: '251 113 133', label: 'settings.colorNames.pink', hex: '#FB7185' }
 		]
 	};
+
+	const label = (value: string) => (value.startsWith('settings.') ? $t(value) : value);
 
 	// Charger les paramètres depuis localStorage
 	onMount(() => {
@@ -183,7 +186,7 @@
 								class="color-preset"
 								class:active={settings.primaryColor === color.value}
 								style="background-color: {color.hex}"
-								title={color.label}
+								title={label(color.label)}
 								onclick={() => {
 									settings.primaryColor = color.value;
 									handleChange();
@@ -230,7 +233,7 @@
 								class="color-preset"
 								class:active={settings.accentColor === color.value}
 								style="background-color: {color.hex}"
-								title={color.label}
+								title={label(color.label)}
 								onclick={() => {
 									settings.accentColor = color.value;
 									handleChange();
@@ -371,7 +374,7 @@
 						onchange={handleChange}
 					>
 						{#each fontFamilies as font}
-							<option value={font.value}>{font.label}</option>
+							<option value={font.value}>{label(font.label)}</option>
 						{/each}
 					</select>
 				</div>
@@ -388,7 +391,7 @@
 						onchange={handleChange}
 					>
 						{#each fontSizes as size}
-							<option value={size.value}>{size.label}</option>
+							<option value={size.value}>{label(size.label)}</option>
 						{/each}
 					</select>
 					<div class="preview-text" style="font-size: {settings.fontSize}px;">
@@ -413,7 +416,7 @@
 						onchange={handleChange}
 					>
 						{#each spacingOptions as spacing}
-							<option value={spacing.value}>{spacing.label}</option>
+							<option value={spacing.value}>{label(spacing.label)}</option>
 						{/each}
 					</select>
 				</div>

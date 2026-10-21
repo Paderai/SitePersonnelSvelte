@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { t } from 'svelte-i18n';
 	import { cvData } from '$lib/data/cv-data';
+	import { tl } from '$lib/i18n';
 </script>
 
 <div class="page-container">
@@ -10,7 +11,7 @@
 				<img src="/photo-profile.jpg" alt={cvData.profile.name} class="bio-avatar" />
 				<div>
 					<h1 class="page-title">{$t('nav.bio')}</h1>
-					<p class="page-subtitle">{cvData.profile.title}</p>
+					<p class="page-subtitle">{$tl(cvData.profile.title)}</p>
 				</div>
 			</div>
 		</header>
@@ -18,7 +19,7 @@
 		<article class="content">
 			<section class="bio-section highlight">
 				<h2>{$t('bioPage.about')}</h2>
-				<p class="lead">{cvData.profile.summary}</p>
+				<p class="lead">{$tl(cvData.profile.summary)}</p>
 			</section>
 
 			<section class="bio-section">
@@ -26,10 +27,10 @@
 				<div class="skills-grid">
 					{#each cvData.skills as skillCategory}
 						<div class="skill-category">
-							<h3>{skillCategory.category}</h3>
+							<h3>{$tl(skillCategory.category)}</h3>
 							<ul>
 								{#each skillCategory.items as skill}
-									<li>{skill}</li>
+									<li>{$tl(skill)}</li>
 								{/each}
 							</ul>
 						</div>
@@ -42,8 +43,8 @@
 				<div class="languages-list">
 					{#each cvData.languages as lang}
 						<div class="language-item">
-							<span class="language-name">{lang.language}</span>
-							<span class="language-level">{lang.level}</span>
+							<span class="language-name">{$tl(lang.language)}</span>
+							<span class="language-level">{$tl(lang.level)}</span>
 						</div>
 					{/each}
 				</div>
@@ -53,11 +54,11 @@
 				<h2>{$t('bioPage.education')}</h2>
 				{#each cvData.education as edu}
 					<div class="education-item">
-						<h3>{edu.degree}</h3>
-						<p class="institution">{edu.institution} - {edu.location}</p>
+						<h3>{$tl(edu.degree)}</h3>
+						<p class="institution">{edu.institution} - {$tl(edu.location)}</p>
 						<p class="period">{edu.period}</p>
 						{#if edu.description}
-							<p class="description">{edu.description}</p>
+							<p class="description">{$tl(edu.description)}</p>
 						{/if}
 					</div>
 				{/each}
@@ -100,7 +101,7 @@
 							<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
 							<circle cx="12" cy="10" r="3"></circle>
 						</svg>
-						<span>{cvData.profile.location}</span>
+						<span>{$tl(cvData.profile.location)}</span>
 					</div>
 					{#if cvData.profile.linkedin}
 						<div class="contact-item">

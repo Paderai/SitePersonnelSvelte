@@ -29,7 +29,9 @@
   "theme": {
     "light": "Mode clair",
     "dark": "Mode sombre",
-    "toggle": "Changer de thème"
+    "toggle": "Changer de thème",
+    "enableDark": "Activer le mode sombre",
+    "enableLight": "Activer le mode clair"
   },
   "language": {
     "select": "Sélectionner la langue",
@@ -54,7 +56,6 @@
   },
   "achievements": {
     "subtitle": "Mes principales réalisations professionnelles",
-    "translationPending": "Traductions à venir",
     "filterCategory": "Catégorie:",
     "filterYear": "Année:",
     "filterAll": "Toutes",
@@ -195,6 +196,29 @@
     "actions": {
       "save": "Enregistrer les modifications",
       "reset": "Réinitialiser"
+    },
+    "options": {
+      "systemFont": "System UI (Défaut)",
+      "small": "Petit (14px)",
+      "normalSize": "Normal (16px)",
+      "large": "Grand (18px)",
+      "xlarge": "Très grand (20px)",
+      "compact": "Compact",
+      "normal": "Normal",
+      "comfortable": "Confortable",
+      "spacious": "Spacieux"
+    },
+    "colorNames": {
+      "blueDefault": "Bleu (défaut)",
+      "goldDefault": "Jaune doré (défaut)",
+      "green": "Vert",
+      "red": "Rouge",
+      "purple": "Violet",
+      "pink": "Rose",
+      "orange": "Orange",
+      "yellow": "Jaune",
+      "skyBlue": "Bleu ciel",
+      "turquoise": "Turquoise"
     }
   },
   "incubator": {
@@ -283,5 +307,12 @@
       "project5": "Création d'un cloud personnel souverain",
       "conclusion": "L'incubateur numérique personnel est un projet en constante évolution. Je continue d'explorer de nouvelles technologies et de développer de nouveaux projets. Mon objectif est de continuer à apprendre et à innover, tout en partageant mes connaissances et mes expériences avec d'autres passionnés de technologie. Si vous êtes intéressé par l'innovation et les technologies numériques, n'hésitez pas à me contacter. Je serais ravi de discuter de mes projets et de partager mes idées avec vous."
     }
+  },
+  "meta": {
+    "description": "François Provencher - Ingénieur et consultant en innovation"
+  },
+  "cvPage": {
+    "experience": "Expérience professionnelle",
+    "keyAchievements": "Réalisations clés :"
   }
 }

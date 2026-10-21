@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { t } from 'svelte-i18n';
+	import { intlLocale } from '$lib/i18n';
 
 	const currentYear = new Date().getFullYear();
 
@@ -50,8 +51,8 @@
 		}
 	});
 
-	function formatNumber(num: number): string {
-		return num.toLocaleString('fr-CA');
+	function formatNumber(num: number, lang: string): string {
+		return num.toLocaleString(lang);
 	}
 </script>
 
@@ -158,7 +159,7 @@
 						<path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
 						<path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
 					</svg>
-					<span>{formatNumber(visitorCount)} {$t('footer.visitors')}</span>
+					<span>{formatNumber(visitorCount, $intlLocale)} {$t('footer.visitors')}</span>
 				</div>
 			</div>
 		</div>

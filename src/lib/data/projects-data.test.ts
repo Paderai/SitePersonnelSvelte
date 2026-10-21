@@ -1,5 +1,9 @@
 import { describe, it, expect } from 'vitest';
 import { projectsData, projectCategories, getAvailableYears } from './projects-data';
+import { localize, type Translatable } from '$lib/i18n';
+
+// Toutes les variantes linguistiques d'un champ traduisible
+const variants = (v: Translatable) => (typeof v === 'string' ? [v] : Object.values(v));
 
 describe('projects-data', () => {
 	describe('projectsData array', () => {
@@ -17,10 +21,10 @@ describe('projects-data', () => {
 				expect(project).toHaveProperty('status');
 
 				expect(typeof project.id).toBe('string');
-				expect(typeof project.title).toBe('string');
+				expect(typeof localize(project.title, 'fr')).toBe('string');
 				expect(typeof project.category).toBe('string');
 				expect(typeof project.year).toBe('string');
-				expect(typeof project.description).toBe('string');
+				expect(typeof localize(project.description, 'fr')).toBe('string');
 				expect(['completed', 'in-progress', 'planned']).toContain(project.status);
 			});
 		});
@@ -33,8 +37,8 @@ describe('projects-data', () => {
 
 		it('should have non-empty titles and descriptions', () => {
 			projectsData.forEach((project) => {
-				expect(project.title.length).toBeGreaterThan(0);
-				expect(project.description.length).toBeGreaterThan(0);
+				expect(localize(project.title, 'fr').length).toBeGreaterThan(0);
+				expect(localize(project.description, 'fr').length).toBeGreaterThan(0);
 			});
 		});
 
@@ -59,7 +63,7 @@ describe('projects-data', () => {
 				expect(category).toHaveProperty('id');
 				expect(category).toHaveProperty('name');
 				expect(typeof category.id).toBe('string');
-				expect(typeof category.name).toBe('string');
+				expect(localize(category.name, 'fr').length).toBeGreaterThan(0);
 			});
 		});
 
@@ -70,7 +74,7 @@ describe('projects-data', () => {
 		});
 
 		it('should have unique category names', () => {
-			const names = projectCategories.map((c) => c.name);
+			const names = projectCategories.map((c) => localize(c.name, 'fr'));
 			const uniqueNames = new Set(names);
 			expect(names.length).toBe(uniqueNames.size);
 		});
@@ -127,8 +131,8 @@ describe('projects-data', () => {
 				if (project.achievements) {
 					expect(Array.isArray(project.achievements)).toBe(true);
 					project.achievements.forEach((achievement) => {
-						expect(typeof achievement).toBe('string');
-						expect(achievement.length).toBeGreaterThan(0);
+						expect(typeof localize(achievement, 'fr')).toBe('string');
+						expect(localize(achievement, 'fr').length).toBeGreaterThan(0);
 					});
 				}
 			});
@@ -139,8 +143,8 @@ describe('projects-data', () => {
 				if (project.technologies) {
 					expect(Array.isArray(project.technologies)).toBe(true);
 					project.technologies.forEach((tech) => {
-						expect(typeof tech).toBe('string');
-						expect(tech.length).toBeGreaterThan(0);
+						expect(typeof localize(tech, 'fr')).toBe('string');
+						expect(localize(tech, 'fr').length).toBeGreaterThan(0);
 					});
 				}
 			});
@@ -152,11 +156,8 @@ describe('projects-data', () => {
 
 			projectsData.forEach((project) => {
 				sensitiveKeywords.forEach((keyword) => {
-					expect(project.title).not.toContain(keyword);
-					expect(project.description).not.toContain(keyword);
-					if (project.client) {
-						expect(project.client).not.toContain(keyword);
-					}
+					const fields = [project.title, project.description, ...(project.client ? [project.client] : [])];
+					fields.flatMap(variants).forEach((text) => expect(text).not.toContain(keyword));
 				});
 			});
 		});
