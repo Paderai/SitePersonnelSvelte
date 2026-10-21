@@ -133,8 +133,9 @@
 			posts = [newPost, ...posts];
 		} else if (editingPost) {
 			// Modifier post existant
+			const editingId = editingPost.id;
 			posts = posts.map((p) =>
-				p.id === editingPost.id
+				p.id === editingId
 					? {
 							...p,
 							title: formTitle,

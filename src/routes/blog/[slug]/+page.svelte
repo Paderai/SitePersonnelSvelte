@@ -10,7 +10,7 @@
 	let notFound = $state(false);
 
 	onMount(() => {
-		const slug = $page.params.slug;
+		const slug = $page.params.slug ?? '';
 		const foundPost = getPostBySlug(slug);
 
 		if (foundPost && foundPost.published) {

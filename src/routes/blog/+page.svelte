@@ -32,7 +32,8 @@
 		}
 
 		if (selectedTag) {
-			filtered = filtered.filter((post) => post.tags.includes(selectedTag));
+			const tag = selectedTag;
+			filtered = filtered.filter((post) => post.tags.includes(tag));
 		}
 
 		if (searchQuery) {
